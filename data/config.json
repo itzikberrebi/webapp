@@ -59,7 +59,7 @@
 			"options": {
 				"rowLabel": "Report",
 				"sites": [
-					{"name": "ynet", "url": ""},
+					{"name": "ynet", "url": "www.ynet.co.il"},
 					{"name": "", "url": ""},
 					{"name": "", "url": ""}
 				]

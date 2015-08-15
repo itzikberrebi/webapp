@@ -2,15 +2,10 @@ jQuery(document).ready(function() {
 
 
 	$.getJSON("data/config.json", function(data){
-		alert("ffff");
-		alert(data.notification);
-		alert(data.tabsList);
 		var tabs = data.tabsList;
-		alert(tabs);
-		alert(tabs[0]);
 		alert(tabs[0].options.sites[0].name);
-		alert(tabs[0].options.sites[0]);
-		alert(tabs[0].options);
+		alert(tabs[0].options.sites[0].url);
+
     });
 
 	jQuery('.tabs li a').on('click', function(e)  {
