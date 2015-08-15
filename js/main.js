@@ -7,10 +7,10 @@ jQuery(document).ready(function() {
 		alert(data.tabsList);
 		var tabs = data.tabsList;
 		alert(tabs);
-		alert(tabs[1]);
-		alert(tabs[1].options.sites[1].name);
-		alert(tabs[1].options.sites[1]);
-		alert(tabs[1].options);
+		alert(tabs[0]);
+		alert(tabs[0].options.sites[0].name);
+		alert(tabs[0].options.sites[0]);
+		alert(tabs[0].options);
     });
 
 	jQuery('.tabs li a').on('click', function(e)  {
