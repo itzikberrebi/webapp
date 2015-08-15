@@ -1,15 +1,5 @@
 jQuery(document).ready(function() {
 
-$name1;
-$url1;
-
-	$.getJSON("data/config.json", function(data){
-		var tabs = data.tabsList;
-		$name1 = (tabs[0].options.sites[0].name);
-		$url1 = (tabs[0].options.sites[0].url);
-		// alert(tabs[0].options.sites[1].url);
-    });
-
 	jQuery('.tabs li a').on('click', function(e)  {
 		var href = jQuery(this).attr('href');
 		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
@@ -23,8 +13,17 @@ $url1;
 
 	jQuery('#settings').on('click', function(e)  {
 
-		$('input[name="site1name"]').val($name1);
-		$('input[name="site1url"]').val($url1);
+		var name1;
+		var url1;
+		$.getJSON("data/config.json", function(data){
+			var tabs = data.tabsList;
+			name1 = (tabs[0].options.sites[0].name);
+			url1 = (tabs[0].options.sites[0].url);
+		// alert(tabs[0].options.sites[1].url);
+		});
+
+		$('input[name="site1name"]').val(name1);
+		$('input[name="site1url"]').val(url1);
 
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
@@ -52,9 +51,9 @@ $url1;
 	});
 
 	jQuery("form").submit(function(e){
-	    alert("Submitted");
+		alert("Submitted");
 
-	    e.preventDefault();
+		e.preventDefault();
 	});
 
 
