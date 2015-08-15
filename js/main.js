@@ -1,5 +1,16 @@
 jQuery(document).ready(function() {
 
+		$.getJSON("data/config.json", function(data){
+			var tabs = data.tabsList;
+			var name1 = (tabs[0].options.sites[0].name);
+			var url1 = (tabs[0].options.sites[0].url);
+			alert(name1);
+		// alert(tabs[0].options.sites[1].url);
+		$('input[name="site1name"]').val(name1);
+		$('input[name="site1url"]').val(url1);
+
+		});
+
 	jQuery('.tabs li a').on('click', function(e)  {
 		var href = jQuery(this).attr('href');
 		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
@@ -12,21 +23,6 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#settings').on('click', function(e)  {
-
-		var name1;
-		var url1;
-		$.getJSON("data/config.json", function(data){
-			var tabs = data.tabsList;
-			name1 = (tabs[0].options.sites[0].name);
-			url1 = (tabs[0].options.sites[0].url);
-			alert(name1);
-		// alert(tabs[0].options.sites[1].url);
-		})
-
-		alert("url " + name1);
-		$('input[name="site1name"]').val(name1);
-		$('input[name="site1url"]').val(url1);
-
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
