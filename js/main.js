@@ -3,6 +3,7 @@ jQuery(document).ready(function() {
 
 	$.getJSON("data/config.json", function(data){
 		var quickActions = data.quickActions;
+		alert (quickActions);
 		for(var i=0; i<quickActions.length; i++){
 			alert (quickActions[i].label);
 		}
