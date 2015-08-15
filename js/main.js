@@ -22,7 +22,7 @@ jQuery(document).ready(function() {
 			alert(name1);
 		// alert(tabs[0].options.sites[1].url);
 		});
-		alert (name1);
+		alert("url " + name1);
 		$('input[name="site1name"]').val(name1);
 		$('input[name="site1url"]').val(url1);
 
