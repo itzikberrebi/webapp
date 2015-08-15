@@ -3,6 +3,7 @@ jQuery(document).ready(function() {
 
 	$.getJSON("data/config.json", function(data){
 		var tabsList = data.tabsList;
+		alert("ffff");
 		alert (tabsList[1].options.sites[1].name);
 		alert (tabsList[1].options.sites[1]);
 		alert (tabsList[1].options);
