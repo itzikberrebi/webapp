@@ -4,11 +4,13 @@ jQuery(document).ready(function() {
 	$.getJSON("data/config.json", function(data){
 		alert("ffff");
 		alert(data.notification);
-		var tabsList = data.tabsList;
-		alert(tabsList[1].options.sites[1].name);
-		alert(tabsList[1].options.sites[1]);
-		alert(tabsList[1].options);
-		alert(tabsList[1]);
+		alert(data.tabsList);
+		var tabs = data.tabsList;
+		alert(tabs);
+		alert(tabs[1]);
+		alert(tabs[1].options.sites[1].name);
+		alert(tabs[1].options.sites[1]);
+		alert(tabs[1].options);
     });
 
 	jQuery('.tabs li a').on('click', function(e)  {
