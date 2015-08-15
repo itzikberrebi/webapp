@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
 	$.getJSON("data/config.json", function(data){
 		var quickActions = json.quickActions;
 		for(var i=0; i<quickActions.length; i++){
-			alert ("label" + quickActions[i].label);
+			alert (quickActions[i].label);
 		}
     });
 
