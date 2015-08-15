@@ -19,6 +19,7 @@ jQuery(document).ready(function() {
 			var tabs = data.tabsList;
 			name1 = (tabs[0].options.sites[0].name);
 			url1 = (tabs[0].options.sites[0].url);
+			alert(name1);
 		// alert(tabs[0].options.sites[1].url);
 		});
 		alert (name1);
