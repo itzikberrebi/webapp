@@ -2,9 +2,9 @@ jQuery(document).ready(function() {
 
 
 	$.getJSON("data/config.json", function(data){
-		var quickActions = json.quickActions;
+		var quickActions = data.quickActions;
 		for(var i=0; i<quickActions.length; i++){
-			alert (quickActions[i].text);
+			alert (quickActions[i].label);
 		}
     });
 
