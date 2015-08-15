@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 
 
 	$.getJSON("data/config.json", function(data){
-		var quickActions = data.quickActions;
+		var tabsList = data.tabsList;
 		alert (tabsList[1].options.sites[1].name);
     });
 
