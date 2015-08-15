@@ -52,7 +52,7 @@
 					"url": "http://netcraft.co.il"
 				}
 			]
-		}
+		} 
 	],
 	"tabsList": [
 		{
@@ -60,7 +60,7 @@
 				"rowLabel": "Report",
 				"sites": [
 					{"name": "ynet", "url": "www.ynet.co.il"},
-					{"name": "", "url": ""},
+					{"name": "walla", "url": "http://www.walla.com"},
 					{"name": "", "url": ""}
 				]
 			}

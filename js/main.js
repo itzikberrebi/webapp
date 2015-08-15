@@ -5,7 +5,7 @@ jQuery(document).ready(function() {
 		var tabs = data.tabsList;
 		alert(tabs[0].options.sites[0].name);
 		alert(tabs[0].options.sites[0].url);
-
+		alert(tabs[1].options.sites[1].url);
     });
 
 	jQuery('.tabs li a').on('click', function(e)  {
