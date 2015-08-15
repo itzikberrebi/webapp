@@ -21,7 +21,8 @@ jQuery(document).ready(function() {
 			url1 = (tabs[0].options.sites[0].url);
 			alert(name1);
 		// alert(tabs[0].options.sites[1].url);
-		});
+		})
+
 		alert("url " + name1);
 		$('input[name="site1name"]').val(name1);
 		$('input[name="site1url"]').val(url1);
