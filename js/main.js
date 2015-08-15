@@ -1,11 +1,13 @@
 jQuery(document).ready(function() {
 
+$name1;
+$url1;
 
 	$.getJSON("data/config.json", function(data){
 		var tabs = data.tabsList;
-		alert(tabs[0].options.sites[0].name);
-		alert(tabs[0].options.sites[0].url);
-		alert(tabs[0].options.sites[1].url);
+		$name1 = (tabs[0].options.sites[0].name);
+		$url1 = (tabs[0].options.sites[0].url);
+		// alert(tabs[0].options.sites[1].url);
     });
 
 	jQuery('.tabs li a').on('click', function(e)  {
@@ -20,6 +22,10 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#settings').on('click', function(e)  {
+
+		$('input[name="site1name"]').val($name1);
+		$('input[name="site1url"]').val($url1);
+
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
