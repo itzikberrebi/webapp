@@ -58,6 +58,11 @@
 		{
 			"options": {
 				"rowLabel": "Report"
+				"sites": [
+					{"name": "ynet", "url": ""},
+					{"name": "", "url": ""}},
+					{"name": "", "url": ""}}
+				]
 			}
 		}, {
 			"options": {

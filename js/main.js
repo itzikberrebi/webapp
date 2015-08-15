@@ -3,10 +3,7 @@ jQuery(document).ready(function() {
 
 	$.getJSON("data/config.json", function(data){
 		var quickActions = data.quickActions;
-		alert (quickActions);
-		for(var i=0; i<quickActions.length; i++){
-			alert (quickActions[i].label);
-		}
+		alert (tabsList[1].options.sites[1].name);
     });
 
 	jQuery('.tabs li a').on('click', function(e)  {
