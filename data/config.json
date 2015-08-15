@@ -57,11 +57,11 @@
 	"tabsList": [
 		{
 			"options": {
-				"rowLabel": "Report"
+				"rowLabel": "Report",
 				"sites": [
 					{"name": "ynet", "url": ""},
-					{"name": "", "url": ""}},
-					{"name": "", "url": ""}}
+					{"name": "", "url": ""},
+					{"name": "", "url": ""}
 				]
 			}
 		}, {
