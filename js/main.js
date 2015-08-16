@@ -1,15 +1,16 @@
 jQuery(document).ready(function() {
 
+	$.fn.myFunction = function(){ 
 		$.getJSON("data/config.json", function(data){
 			var tabs = data.tabsList;
-			var name1 = (tabs[0].options.sites[0].name);
-			var url1 = (tabs[0].options.sites[0].url);
-			alert(name1);
-		// alert(tabs[0].options.sites[1].url);
-		$('input[name="site1name"]').val(name1);
-		$('input[name="site1url"]').val(url1);
-
+			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
+			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
+			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
+			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
+			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
+			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
 		});
+	}
 
 	jQuery('.tabs li a').on('click', function(e)  {
 		var href = jQuery(this).attr('href');
