@@ -52,8 +52,7 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		alert("Submitted");
-		$.fn.myFunction();
-		alert("1");
+		alert("2");
 		e.preventDefault();
 	});
 
