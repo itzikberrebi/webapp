@@ -67,7 +67,6 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		alert("Submitted");
-		$.fn.loadJson();
 		$.fn.saveJson();
 		e.preventDefault();
 	});
