@@ -24,6 +24,7 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#settings').on('click', function(e)  {
+		$.fn.myFunction();
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
