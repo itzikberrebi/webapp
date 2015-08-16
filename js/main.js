@@ -17,12 +17,18 @@ jQuery(document).ready(function() {
 		$.getJSON("data/config.json", function(data){
 			alert('saving json');
 			var tabs = data.tabsList;
-			tabs[0].options.sites[0].name=$('input[name="site1name"]').val();
-			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
-			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
-			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
-			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
-			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+			delete data.tabsList[0];
+			var tabsNew = {
+			"options": {
+				"rowLabel": "Report",
+				"sites": [
+					{"name":$('input[name="site1name"]').val(), "url": $('input[name="site1url"]').val()},
+					{"name":$('input[name="site2name"]').val(), "url":$('input[name="site2name"]').val()},
+					{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3name"]').val()}
+				]
+			}
+		};
+			data.tabsList.push(tabsNew);
 			$.fn.loadJson();
 		});
 	}
