@@ -1,7 +1,8 @@
 jQuery(document).ready(function() {
 
-	$.fn.myFunction = function(){ 
+	$.fn.loadJson = function(){ 
 		$.getJSON("data/config.json", function(data){
+			alert('loading json');
 			var tabs = data.tabsList;
 			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
 			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
@@ -9,6 +10,20 @@ jQuery(document).ready(function() {
 			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
 			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
 			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+		});
+	}
+
+	$.fn.saveJson = function(){ 
+		$.getJSON("data/config.json", function(data){
+			alert('saving json');
+			var tabs = data.tabsList;
+			tabs[0].options.sites[0].name=$('input[name="site1name"]').val();
+			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
+			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
+			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
+			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
+			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+			$.fn.loadJson();
 		});
 	}
 
@@ -52,7 +67,8 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		alert("Submitted");
-		alert("2");
+		$.fn.loadJson();
+		$.fn.saveJson();
 		e.preventDefault();
 	});
 
