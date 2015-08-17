@@ -4,6 +4,7 @@ var tabs = '';
 var first = 1;
 
 	$.fn.loadJson = function(){ 
+				e.preventDefault();
 		$.getJSON("data/config.json", function(data){
 			alert('loading json');
 			tabs = data.tabsList;
@@ -18,6 +19,7 @@ var first = 1;
 	}
 
 	$.fn.loadJsonSecondery = function(){
+				e.preventDefault();
 			alert('loading json second');
 			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
 			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
@@ -28,6 +30,7 @@ var first = 1;
 	}
 
 	$.fn.saveJson = function(){ 
+				e.preventDefault();
 			delete tabs[0];
 			var tabsNew = {
 			"options": {
