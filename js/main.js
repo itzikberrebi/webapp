@@ -28,7 +28,11 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.saveJson = function(){ 
-		delete tabs[0];
+		if (first==1) {
+			delete tabs[0];
+		} else {
+			delete tabs[3];
+		}
 		var tabsNew = {
 			"options": {
 				"rowLabel": "Report",
@@ -91,7 +95,8 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		$.fn.saveJson();
-		console.log('after submit' + tabs);
+		console.log('after submit');
+		console.log(tabs);
 		e.preventDefault();
 	});
 
