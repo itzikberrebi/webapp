@@ -40,7 +40,7 @@ var first = 1;
 			}
 		};
 			tabs.push(tabsNew);
-			alert('change json');
+			alert('finish saving json');
 			console.log(tabs);
 			$.fn.loadJsonSecondery(tabs);
 	}
@@ -62,6 +62,8 @@ var first = 1;
 			first = 0;
 		} else {
 			$.fn.loadJsonSecondery();
+			console.log('after pressing settings');			
+			console.log(tabs);
 		}
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
@@ -90,7 +92,8 @@ var first = 1;
 
 	jQuery("form").submit(function(e){
 		alert("Submitted");
-		$.fn.loadJsonSecondery();
+		$.fn.saveJson();
+		console.log(tabs);
 		e.preventDefault();
 	});
 
