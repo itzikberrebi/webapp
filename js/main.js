@@ -44,8 +44,6 @@ jQuery(document).ready(function() {
 		tabs.push(tabsNew);
 		alert('finish saving json');
 		console.log(tabs);
-		$.fn.loadJsonSecondery(tabs);
-		e.preventDefault();
 	}
 
 	jQuery('.tabs li a').on('click', function(e)  {
@@ -65,7 +63,7 @@ jQuery(document).ready(function() {
 			first = 0;
 			e.preventDefault();
 		} else {
-			$.fn.loadJsonSecondery();
+			//$.fn.loadJsonSecondery();
 			console.log('after pressing settings');			
 			console.log(tabs);
 			e.preventDefault();
