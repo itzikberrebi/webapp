@@ -30,6 +30,7 @@ jQuery(document).ready(function() {
 		};
 			data.tabsList.push(tabsNew);
 			alert('change json');
+			alert(tabs);
 			$.fn.loadJson();
 		});
 	}
