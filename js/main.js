@@ -17,12 +17,14 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.loadJsonSecondery = function(){
-		$('input[name="site1name"]').val(tabs[3].options.sites[0].name);
-		$('input[name="site1url"]').val(tabs[3].options.sites[0].url);
-		$('input[name="site2name"]').val(tabs[3].options.sites[1].name);
-		$('input[name="site2url"]').val(tabs[3].options.sites[1].url);
-		$('input[name="site3name"]').val(tabs[3].options.sites[2].name);
-		$('input[name="site3url"]').val(tabs[3].options.sites[2].url);
+		console.log('load for second time')
+		console.log(tabs[3]);
+		// $('input[name="site1name"]').val(tabs[3].options.sites[0].name);
+		// $('input[name="site1url"]').val(tabs[3].options.sites[0].url);
+		// $('input[name="site2name"]').val(tabs[3].options.sites[1].name);
+		// $('input[name="site2url"]').val(tabs[3].options.sites[1].url);
+		// $('input[name="site3name"]').val(tabs[3].options.sites[2].name);
+		// $('input[name="site3url"]').val(tabs[3].options.sites[2].url);
 	}
 
 	$.fn.saveJson = function(){ 
