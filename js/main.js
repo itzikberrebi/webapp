@@ -19,14 +19,12 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.loadJsonSecondery = function(){
-		alert('loading json second');
-		$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
-		$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
-		$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
-		$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
-		$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
-		$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
-		e.preventDefault();
+		$('input[name="site1name"]').val(tabs[3].options.sites[0].name);
+		$('input[name="site1url"]').val(tabs[3].options.sites[0].url);
+		$('input[name="site2name"]').val(tabs[3].options.sites[1].name);
+		$('input[name="site2url"]').val(tabs[3].options.sites[1].url);
+		$('input[name="site3name"]').val(tabs[3].options.sites[2].name);
+		$('input[name="site3url"]').val(tabs[3].options.sites[2].url);
 	}
 
 	$.fn.saveJson = function(){ 
@@ -63,7 +61,7 @@ jQuery(document).ready(function() {
 			first = 0;
 			e.preventDefault();
 		} else {
-			//$.fn.loadJsonSecondery();
+			$.fn.loadJsonSecondery();
 			console.log('after pressing settings');			
 			console.log(tabs);
 			e.preventDefault();
