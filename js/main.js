@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
 
 	$.fn.loadJsonSecondery = function(){
 		console.log('load for second time')
-		console.log(tabs[3]);
+		console.log(tabs[0]);
 		// $('input[name="site1name"]').val(tabs[3].options.sites[0].name);
 		// $('input[name="site1url"]').val(tabs[3].options.sites[0].url);
 		// $('input[name="site2name"]').val(tabs[3].options.sites[1].name);
@@ -28,11 +28,6 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.saveJson = function(){ 
-		if (first==1) {
-			delete tabs[0];
-		} else {
-			delete tabs[3];
-		}
 		var tabsNew = {
 			"options": {
 				"rowLabel": "Report",
@@ -43,7 +38,7 @@ jQuery(document).ready(function() {
 				]
 			}
 		};
-		tabs.push(tabsNew);
+		tabs[0]=tabsNew;
 	}
 
 	jQuery('.tabs li a').on('click', function(e)  {
