@@ -5,16 +5,14 @@ jQuery(document).ready(function() {
 
 	$.fn.loadJson = function(){ 
 		$.getJSON("data/config.json", function(data){
-			alert('loading json');
 			tabs = data.tabsList;
-			console.log(tabs);
+			console.log('first json ' + tabs);
 			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
 			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
 			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
 			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
 			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
 			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
-			e.preventDefault();
 		});
 	}
 
@@ -34,14 +32,12 @@ jQuery(document).ready(function() {
 				"rowLabel": "Report",
 				"sites": [
 				{"name":$('input[name="site1name"]').val(), "url": $('input[name="site1url"]').val()},
-				{"name":$('input[name="site2name"]').val(), "url":$('input[name="site2name"]').val()},
-				{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3name"]').val()}
+				{"name":$('input[name="site2name"]').val(), "url":$('input[name="site2url"]').val()},
+				{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3url"]').val()}
 				]
 			}
 		};
 		tabs.push(tabsNew);
-		alert('finish saving json');
-		console.log(tabs);
 	}
 
 	jQuery('.tabs li a').on('click', function(e)  {
@@ -62,7 +58,7 @@ jQuery(document).ready(function() {
 			e.preventDefault();
 		} else {
 			$.fn.loadJsonSecondery();
-			console.log('after pressing settings');			
+			console.log('after pressing settings for second time');			
 			console.log(tabs);
 			e.preventDefault();
 		}
@@ -92,9 +88,8 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery("form").submit(function(e){
-		alert("Submitted");
 		$.fn.saveJson();
-		console.log(tabs);
+		console.log('after submit' + tabs);
 		e.preventDefault();
 	});
 
