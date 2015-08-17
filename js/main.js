@@ -14,8 +14,8 @@ jQuery(document).ready(function() {
 			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
 			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
 			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+			e.preventDefault();
 		});
-		e.preventDefault();
 	}
 
 	$.fn.loadJsonSecondery = function(){
