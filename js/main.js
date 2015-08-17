@@ -13,6 +13,19 @@ jQuery(document).ready(function() {
 		});
 	}
 
+	$.fn.loadJsonSecondery = function(id){
+			alert ('id ' + id); 
+			alert('loading json second');
+			var tabs = data.tabsList;
+			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
+			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
+			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
+			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
+			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
+			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+	}
+
+
 	$.fn.saveJson = function(){ 
 		$.getJSON("data/config.json", function(data){
 			var tabs = data.tabsList;
@@ -74,7 +87,7 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		alert("Submitted");
-		$.fn.saveJson();
+		$.fn.loadJsonSecondery('2222');
 		e.preventDefault();
 	});
 
