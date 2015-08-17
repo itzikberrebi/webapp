@@ -1,9 +1,13 @@
 jQuery(document).ready(function() {
 
+var tabs = '';
+var first = 1;
+
 	$.fn.loadJson = function(){ 
 		$.getJSON("data/config.json", function(data){
 			alert('loading json');
-			var tabs = data.tabsList;
+			tabs = data.tabsList;
+			console.log(tabs);
 			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
 			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
 			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
@@ -13,10 +17,8 @@ jQuery(document).ready(function() {
 		});
 	}
 
-	$.fn.loadJsonSecondery = function(id){
-			alert ('id ' + id); 
+	$.fn.loadJsonSecondery = function(){
 			alert('loading json second');
-			var tabs = data.tabsList;
 			$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
 			$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
 			$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
@@ -25,11 +27,8 @@ jQuery(document).ready(function() {
 			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
 	}
 
-
 	$.fn.saveJson = function(){ 
-		$.getJSON("data/config.json", function(data){
-			var tabs = data.tabsList;
-			delete data.tabsList[0];
+			delete tabs[0];
 			var tabsNew = {
 			"options": {
 				"rowLabel": "Report",
@@ -40,10 +39,10 @@ jQuery(document).ready(function() {
 				]
 			}
 		};
-			data.tabsList.push(tabsNew);
+			tabs.push(tabsNew);
 			alert('change json');
-			alert(tabs.tabsList[0]);
-			$.fn.loadJson();
+			console.log(tabs);
+			$.fn.loadJsonSecondery(tabs);
 		});
 	}
 
@@ -59,7 +58,12 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#settings').on('click', function(e)  {
-		$.fn.loadJson();
+		if (first==1) {
+			$.fn.loadJson();
+			first = 0;
+		} else {
+			$.fn.loadJsonSecondery();
+		}
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
@@ -87,10 +91,8 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		alert("Submitted");
-		$.fn.loadJsonSecondery('2222');
+		$.fn.loadJsonSecondery();
 		e.preventDefault();
 	});
-
-
 
 });
