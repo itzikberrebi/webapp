@@ -15,7 +15,6 @@ jQuery(document).ready(function() {
 
 	$.fn.saveJson = function(){ 
 		$.getJSON("data/config.json", function(data){
-			alert('saving json');
 			var tabs = data.tabsList;
 			delete data.tabsList[0];
 			var tabsNew = {
@@ -30,7 +29,7 @@ jQuery(document).ready(function() {
 		};
 			data.tabsList.push(tabsNew);
 			alert('change json');
-			alert(tabs);
+			alert(tabs.tabsList[0]);
 			$.fn.loadJson();
 		});
 	}
