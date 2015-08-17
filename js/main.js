@@ -43,7 +43,6 @@ var first = 1;
 			alert('change json');
 			console.log(tabs);
 			$.fn.loadJsonSecondery(tabs);
-		});
 	}
 
 	jQuery('.tabs li a').on('click', function(e)  {
