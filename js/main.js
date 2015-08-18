@@ -18,16 +18,16 @@ jQuery(document).ready(function() {
 
 	$.fn.loadJsonSecondery = function(){
 		console.log('load for second time')
-		console.log(tabs[0]);
-		// $('input[name="site1name"]').val(tabs[3].options.sites[0].name);
-		// $('input[name="site1url"]').val(tabs[3].options.sites[0].url);
-		// $('input[name="site2name"]').val(tabs[3].options.sites[1].name);
-		// $('input[name="site2url"]').val(tabs[3].options.sites[1].url);
-		// $('input[name="site3name"]').val(tabs[3].options.sites[2].name);
-		// $('input[name="site3url"]').val(tabs[3].options.sites[2].url);
+		$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
+		$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
+		$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
+		$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
+		$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
+		$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
 	}
 
 	$.fn.saveJson = function(){ 
+		console.log('saving');
 		var tabsNew = {
 			"options": {
 				"rowLabel": "Report",
@@ -41,20 +41,24 @@ jQuery(document).ready(function() {
 		tabs[0]=tabsNew;
 	}
 
-	jQuery('.tabs li a').on('click', function(e)  {
+	$.fn.closeSettings = function(){
+		jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+	}
+
+	jQuery('.tabs li a').on('click', function(e){
 		var href = jQuery(this).attr('href');
 		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
 		jQuery(href).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
-
 		jQuery(this).parent('li').removeClass('turnoff').addClass('turnon');
 		jQuery(this).parent('li').siblings().removeClass('turnon').addClass('turnoff');
-
 		e.preventDefault();
 	});
 
 	jQuery('#settings').on('click', function(e)  {
 		if (first==1) {
 			$.fn.loadJson();
+			console.log('after pressing settings first time');			
+			console.log(tabs);
 			first = 0;
 			e.preventDefault();
 		} else {
@@ -84,14 +88,15 @@ jQuery(document).ready(function() {
 
 	jQuery('#cancel').on('click', function(e)  {
 		jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+		$.fn.closeSettings();
 		e.preventDefault();
-
 	});
 
 	jQuery("form").submit(function(e){
 		$.fn.saveJson();
-		console.log('after submit');
+		console.log('submit');
 		console.log(tabs);
+		$.fn.closeSettings();
 		e.preventDefault();
 	});
 
