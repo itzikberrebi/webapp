@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 
 	$.fn.selectItemCheck = function() {
 		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
-			$('select').css("visibility", "visable");
+			$('select').css("visibility", "visible");
 		} else {
 			$('select').css("visibility", "hidden");			
 		}
