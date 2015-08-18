@@ -133,6 +133,7 @@ jQuery(document).ready(function() {
 		console.log(tabs);
 		$.fn.closeSettings();
 		$.fn.selectItemCheck();
+		$.fn.showFirstIframe();
 		e.preventDefault();
 	});
 
