@@ -50,6 +50,14 @@ jQuery(document).ready(function() {
 		jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 	}
 
+	$.fn.selectItemCheck = function() {
+		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
+			$('select').css("visibility", "visable");
+		} else {
+			$('select').css("visibility", "hidden");			
+		}
+	}
+
 	jQuery('.tabs li a').on('click', function(e){
 		var href = jQuery(this).attr('href');
 		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
