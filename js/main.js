@@ -51,11 +51,11 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.showFirstIframe = function() {
-		if $('input[name="site1name"]').val(){
+		if ($('input[name="site1name"]').val()){
 			$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
-		} else if $('input[name="site2name"]').val() {
+		} else if ($('input[name="site2name"]').val()) {
 			$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
-		} else if $('input[name="site3name"]').val() {
+		} else if ($('input[name="site3name"]').val()) {
 			$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
 		}
 	}
