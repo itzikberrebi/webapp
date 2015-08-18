@@ -64,13 +64,13 @@ jQuery(document).ready(function() {
 	$('#quick-reports select').change(function() {
 	    var eventTypeName = $("#quick-reports option:selected");
 	    if (eventTypeName.is('[value="1"]') ) {
-	    	$("#my-folders iframe").attr("src", tabs[0].options.sites[0].url);
+	    	$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
 	    }
 	    if (eventTypeName.is('[value="2"]') ) {
-	    	$("#my-folders iframe").attr("src", tabs[0].options.sites[1].url);
+	    	$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
 	    }
 	    if (eventTypeName.is('[value="3"]') ) {
-	    	$("#my-folders iframe").attr("src", tabs[0].options.sites[2].url);
+	    	$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
 	    }
 
 
