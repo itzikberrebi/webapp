@@ -50,12 +50,24 @@ jQuery(document).ready(function() {
 		jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 	}
 
+	$.fn.showFirstIframe = function() {
+		if $('input[name="site1name"]').val(){
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
+		} else if $('input[name="site2name"]').val() {
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
+		} else if $('input[name="site3name"]').val() {
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
+		}
+	}
+
 	$.fn.selectItemCheck = function() {
 		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
 			$('select').css("visibility", "visible");
     		    $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
     		    $('#quick-reports option[value="2"]').text($('input[name="site2name"]').val());
     		    $('#quick-reports option[value="3"]').text($('input[name="site3name"]').val());
+
+
 		} else {
 			$('select').css("visibility", "hidden");			
 		}
