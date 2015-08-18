@@ -13,6 +13,11 @@ jQuery(document).ready(function() {
 			$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
 			$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
 			$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+			
+			$("#my-folders iframe").attr("src", tabs[1].options.url);
+
+			$("#public-folders iframe").attr("src", tabs[3].options.url);
+
 		});
 	}
 
@@ -55,18 +60,10 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#settings').on('click', function(e)  {
-		if (first==1) {
-			$.fn.loadJson();
-			console.log('after pressing settings first time');			
-			console.log(tabs);
-			first = 0;
-			e.preventDefault();
-		} else {
 			$.fn.loadJsonSecondery();
 			console.log('after pressing settings for second time');			
 			console.log(tabs);
 			e.preventDefault();
-		}
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
@@ -99,5 +96,7 @@ jQuery(document).ready(function() {
 		$.fn.closeSettings();
 		e.preventDefault();
 	});
+
+	$.fn.loadJson();
 
 });
