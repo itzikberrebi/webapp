@@ -53,20 +53,28 @@ jQuery(document).ready(function() {
 	$.fn.selectItemCheck = function() {
 		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
 			$('select').css("visibility", "visible");
+    		    $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
+    		    $('#quick-reports option[value="2"]').text($('input[name="site2name"]').val());
+    		    $('#quick-reports option[value="3"]').text($('input[name="site3name"]').val());
 		} else {
 			$('select').css("visibility", "hidden");			
 		}
 	}
 
 	$('#quick-reports select').change(function() {
-		alert(this);
-    // var eventTypeName = $("#quick-reports select option:selected");
+	    var eventTypeName = $("#quick-reports option:selected");
+	    if (eventTypeName.is('[value="1"]') ) {
+	    	$("#my-folders iframe").attr("src", tabs[0].options.sites[0].url);
+	    }
+	    if (eventTypeName.is('[value="2"]') ) {
+	    	$("#my-folders iframe").attr("src", tabs[0].options.sites[1].url);
+	    }
+	    if (eventTypeName.is('[value="3"]') ) {
+	    	$("#my-folders iframe").attr("src", tabs[0].options.sites[2].url);
+	    }
 
-    // if (eventTypeName.is('[value="wedding"]') ) {
-    //     $('#band_type_choices option[name="acoustic"]').text('Wedding Ceremony');
-    // }
 
-});
+	});	
 
 	jQuery('.tabs li a').on('click', function(e){
 		var href = jQuery(this).attr('href');

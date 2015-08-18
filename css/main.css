@@ -294,7 +294,7 @@ select {
 	width: 20%;
 	height: 50%;
 	margin-top: 10px;
-	visibility: hidden;
+	visibility: hidden; 
 }
 
 #iframe-div {
