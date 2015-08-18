@@ -58,6 +58,16 @@ jQuery(document).ready(function() {
 		}
 	}
 
+	$('#quick-reports select').change(function() {
+		alert(this);
+    // var eventTypeName = $("#quick-reports select option:selected");
+
+    // if (eventTypeName.is('[value="wedding"]') ) {
+    //     $('#band_type_choices option[name="acoustic"]').text('Wedding Ceremony');
+    // }
+
+});
+
 	jQuery('.tabs li a').on('click', function(e){
 		var href = jQuery(this).attr('href');
 		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
@@ -102,6 +112,7 @@ jQuery(document).ready(function() {
 		console.log('submit');
 		console.log(tabs);
 		$.fn.closeSettings();
+		$.fn.selectItemCheck();
 		e.preventDefault();
 	});
 

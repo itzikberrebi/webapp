@@ -59,8 +59,8 @@
 			"options": {
 				"rowLabel": "Report",
 				"sites": [
-					{"name": "ynet", "url": "www.ynet.co.il"},
-					{"name": "walla", "url": "http://www.walla.com"},
+					{"name": "", "url": ""},
+					{"name": "", "url": ""},
 					{"name": "", "url": ""}
 				]
 			}
