@@ -346,7 +346,22 @@ iframe {
 #form-ul li input{
 	width: 30%;
 	margin-right: 30px;
+
 }
+
+#form-ul li:first-child input {
+
+}
+
+#form-ul li:nth-child(2) input {
+
+}
+
+#form-ul li:last-child input {
+
+}
+
+
 
 
 #send , #cancel{
