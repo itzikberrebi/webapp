@@ -78,23 +78,38 @@ jQuery(document).ready(function() {
 
 	$.fn.checkUrl = function() {
 		var valid=1;
-		if ($.fn.isUrlValid($('input[name="site1url"]').val())){
-			$('#form-ul li:first-child input').css("background-color", "none");
-			valid=0;
-		} else {
-			$('#form-ul li:first-child input').css("background-color", "red");
+
+		if ($('input[name="site1url"]').val() && $('input[name="site1name"]').val()) {
+			if ($.fn.isUrlValid($('input[name="site1url"]').val())){
+				$('#form-ul li:first-child input').css("background-color", "none");
+				valid=0;
+			} else {
+				$('#form-ul li:first-child input').css("background-color", "red");
+			}
+		} else if ($('input[name="site1url"]').val() || $('input[name="site1name"]').val()) {
+				$('#form-ul li:first-child input').css("background-color", "red");
 		}
-		if ($.fn.isUrlValid($('input[name="site2url"]').val())){
-			$('#form-ul li:nth-child(2) input').css("background-color", "none");
-			valid=0;
-		} else {
-			$('#form-ul li:nth-child(2) input').css("background-color", "red");
+		
+		if ($('input[name="site2url"]').val() && $('input[name="site2name"]').val()) {
+			if ($.fn.isUrlValid($('input[name="site2url"]').val())){
+				$('#form-ul li:nth-child(2) input').css("background-color", "none");
+				valid=0;
+			} else {
+				$('#form-ul li:nth-child(2) input').css("background-color", "red");
+			}
+		} else if ($('input[name="site2url"]').val() || $('input[name="site2name"]').val()) {
+				$('#form-ul li:nth-child(2) input').css("background-color", "red");
 		}
-		if ($.fn.isUrlValid($('input[name="site3url"]').val())){
-			$('#form-ul li:last-child input').css("background-color", "none");
-			valid=0;
-		} else {
-			$('#form-ul li:last-child input').css("background-color", "red");
+		
+		if ($('input[name="site3url"]').val() && $('input[name="site3name"]').val()) {
+			if ($.fn.isUrlValid($('input[name="site3url"]').val())){
+				$('#form-ul li:last-child input').css("background-color", "none");
+				valid=0;
+			} else {
+				$('#form-ul li:last-child input').css("background-color", "red");
+			} else if ($('input[name="site3url"]').val() || $('input[name="site3name"]').val()) {
+				$('#form-ul li:last-child input').css("background-color", "red");
+			}
 		}
 		return valid;
 	}
