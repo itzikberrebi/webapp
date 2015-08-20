@@ -79,7 +79,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.isUrlValid = function(url) {
-		return (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#url").val()))
+		return (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(url))
 	}
 
 	$.fn.checkUrl = function() {
