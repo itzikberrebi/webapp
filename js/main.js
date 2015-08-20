@@ -79,7 +79,13 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.isUrlValid = function(url) {
-		return (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(url))
+		if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(url)){
+			console.log("valid");
+			return 1;
+		} else {
+			console.log("not valid");
+			return 0;			
+		}
 	}
 
 	$.fn.checkUrl = function() {
