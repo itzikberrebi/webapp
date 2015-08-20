@@ -25,15 +25,19 @@
 
 .icon-star-o:before {
 	content: "\f006";
+	margin-right: 5px;
 }
 .icon-external-link:before {
 	content: "\f08e";
+	margin-right: 5px;
 }
 .icon-copy:before {
 	content: "\f0c5";
+	margin-right: 5px;
 }
 .icon-folder-open-o:before {
 	content: "\f115";
+	margin-right: 5px;
 }
 
 
