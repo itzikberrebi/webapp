@@ -177,6 +177,8 @@ jQuery(document).ready(function() {
 			$.fn.closeSettings();
 			$.fn.selectItemCheck();
 			$.fn.showFirstIframe();
+		} else {
+			console.log("submit fail");
 		}
 		e.preventDefault();
 	});
