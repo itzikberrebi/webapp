@@ -108,10 +108,10 @@ jQuery(document).ready(function() {
 			} else {
 				$('#form-ul li:last-child input').css("background-color", "red");
 			} 
+		}
 		else if ($('input[name="site3url"]').val() || $('input[name="site3name"]').val()) {
 				$('#form-ul li:last-child input').css("background-color", "red");
 			}
-		}
 		return valid;
 	}
 
