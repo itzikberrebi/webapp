@@ -107,7 +107,8 @@ jQuery(document).ready(function() {
 				valid=0;
 			} else {
 				$('#form-ul li:last-child input').css("background-color", "red");
-			} else if ($('input[name="site3url"]').val() || $('input[name="site3name"]').val()) {
+			} 
+		else if ($('input[name="site3url"]').val() || $('input[name="site3name"]').val()) {
 				$('#form-ul li:last-child input').css("background-color", "red");
 			}
 		}
