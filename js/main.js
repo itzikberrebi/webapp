@@ -20,10 +20,7 @@ jQuery(document).ready(function() {
 
 		});
 	}
-
-	notification
-	$( ".notifications" ).append( "<p>Test</p>" );
-
+	
 	$.fn.loadnotification = function(){ 
 		$.getJSON("data/config.json", function(data){
 			console.log('notification' + tabs);
