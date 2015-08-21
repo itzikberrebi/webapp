@@ -20,11 +20,11 @@ jQuery(document).ready(function() {
 
 		});
 	}
-	
+
 	$.fn.loadnotification = function(){ 
 		$.getJSON("data/config.json", function(data){
 			console.log('notification' + tabs);
-			$( ".notifications" ).append( "<p>",data.notification,"</p>" );
+			$( ".notifications" ).html( "<p>",data.notification,"</p>" );
 		});
 	}
 
