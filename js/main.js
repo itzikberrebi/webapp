@@ -42,16 +42,16 @@ jQuery(document).ready(function() {
 			$(".action-list:nth-child(2) li:first-child a" ).attr("href",quickActions[1].actions[0].url);
 			$(".action-list:nth-child(2) li:nth-child(2) a" ).attr("href",quickActions[1].actions[1].url);
 			$(".action-list:nth-child(2) li:last-child a" ).attr("href",quickActions[1].actions[2].url);
-			$(".action-list:nth-child(2) li:first-child a" ).html(quickActions[0].actions[0].label);
-			$(".action-list:nth-child(2) li:nth-child(2) a" ).html(quickActions[0].actions[1].label);
-			$(".action-list:nth-child(2) li:last-child a" ).html(quickActions[0].actions[2].label);
+			$(".action-list:nth-child(2) li:first-child a" ).html(quickActions[1].actions[0].label);
+			$(".action-list:nth-child(2) li:nth-child(2) a" ).html(quickActions[1].actions[1].label);
+			$(".action-list:nth-child(2) li:last-child a" ).html(quickActions[1].actions[2].label);
 
 			$(".action-list:last-child li:first-child a").attr("href",quickActions[2].actions[0].url);
 			$(".action-list:last-child li:nth-child(2) a").attr("href",quickActions[2].actions[1].url);
 			$(".action-list:last-child li:last-child a").attr("href",quickActions[2].actions[2].url);
-			$(".action-list:last-child li:first-child a").html(quickActions[0].actions[0].label);
-			$(".action-list:last-child li:nth-child(2) a").html(quickActions[0].actions[1].label);
-			$(".action-list:last-child li:last-child a").html(quickActions[0].actions[2].label);
+			$(".action-list:last-child li:first-child a").html(quickActions[2].actions[0].label);
+			$(".action-list:last-child li:nth-child(2) a").html(quickActions[2].actions[1].label);
+			$(".action-list:last-child li:last-child a").html(quickActions[2].actions[2].label);
 
 		});
 	}
