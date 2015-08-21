@@ -32,17 +32,17 @@ jQuery(document).ready(function() {
 		$.getJSON("data/config.json", function(data){
 			var quickActions=data.quickActions;
 			console.log('quickActions');
-			$(".action-list:first-child li:first-child" ).attr("href",quickActions[0].actions[0].url);
-			$(".action-list:first-child li:nth-child(2)" ).attr("href",quickActions[0].actions[1].url);
-			$(".action-list:first-child li:last-child" ).attr("href",quickActions[0].actions[2].url);
+			$(".action-list:first-child li:first-child a" ).attr("href",quickActions[0].actions[0].url);
+			$(".action-list:first-child li:nth-child(2) a" ).attr("href",quickActions[0].actions[1].url);
+			$(".action-list:first-child li:last-child a" ).attr("href",quickActions[0].actions[2].url);
 
-			$(".action-list:nth-child(2) li:first-child" ).attr("href",quickActions[1].actions[0].url);
-			$(".action-list:nth-child(2) li:nth-child(2)" ).attr("href",quickActions[1].actions[1].url);
-			$(".action-list:nth-child(2) li:last-child" ).attr("href",quickActions[1].actions[2].url);
+			$(".action-list:nth-child(2) li:first-child a" ).attr("href",quickActions[1].actions[0].url);
+			$(".action-list:nth-child(2) li:nth-child(2) a" ).attr("href",quickActions[1].actions[1].url);
+			$(".action-list:nth-child(2) li:last-child a" ).attr("href",quickActions[1].actions[2].url);
 
-			$(".action-list:last-child li:first-child" ).attr("href",quickActions[2].actions[0].url);
-			$(".action-list:last-child li:nth-child(2)" ).attr("href",quickActions[2].actions[1].url);
-			$(".action-list:last-child li:last-child" ).attr("href",quickActions[2].actions[2].url);
+			$(".action-list:last-child li:first-child a").attr("href",quickActions[2].actions[0].url);
+			$(".action-list:last-child li:nth-child(2) a").attr("href",quickActions[2].actions[1].url);
+			$(".action-list:last-child li:last-child a").attr("href",quickActions[2].actions[2].url);
 
 		});
 	}
