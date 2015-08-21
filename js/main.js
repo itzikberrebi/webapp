@@ -31,7 +31,7 @@ jQuery(document).ready(function() {
 	$.fn.loadquickActions = function(){ 
 		$.getJSON("data/config.json", function(data){
 			var quickActions=data.quickActions;
-			console.log('quickActions');
+			console.log(quickActions[0].actions[0].url);
 			$(".action-list:first-child li:first-child a" ).attr("href",quickActions[0].actions[0].url);
 			$(".action-list:first-child li:nth-child(2) a" ).attr("href",quickActions[0].actions[1].url);
 			$(".action-list:first-child li:last-child a" ).attr("href",quickActions[0].actions[2].url);
@@ -225,4 +225,6 @@ jQuery(document).ready(function() {
 
 	$.fn.loadJson();
 	$.fn.loadnotification();
+	$.fn.loadquickActions();
+	
 });
