@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 
 	$.fn.loadnotification = function(){ 
 		$.getJSON("data/config.json", function(data){
-			console.log('notification' + tabs);
+			console.log('notification');
 			$( ".notifications" ).html( "<p>",data.notification,"</p>" );
 		});
 	}
