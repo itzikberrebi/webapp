@@ -21,6 +21,16 @@ jQuery(document).ready(function() {
 		});
 	}
 
+	notification
+	$( ".notifications" ).append( "<p>Test</p>" );
+
+	$.fn.loadnotification = function(){ 
+		$.getJSON("data/config.json", function(data){
+			console.log('notification' + tabs);
+			$( ".notifications" ).append( "<p>",data.notification,"</p>" );
+		});
+	}
+
 	$.fn.loadJsonSecondery = function(){
 		console.log('load for second time')
 		$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
@@ -93,7 +103,7 @@ jQuery(document).ready(function() {
 
 		if ($('input[name="site1url"]').val() && $('input[name="site1name"]').val()) {
 			if ($.fn.isUrlValid($('input[name="site1url"]').val())){
-				$('#form-ul li:first-child input').css("background-color", "none");
+				$('#form-ul li:first-child input').css("background-color", "white");
 			} else {
 				$('#form-ul li:first-child input').css("background-color", "red");
 				valid=0;
@@ -105,7 +115,7 @@ jQuery(document).ready(function() {
 		
 		if ($('input[name="site2url"]').val() && $('input[name="site2name"]').val()) {
 			if ($.fn.isUrlValid($('input[name="site2url"]').val())){
-				$('#form-ul li:nth-child(2) input').css("background-color", "none");
+				$('#form-ul li:nth-child(2) input').css("background-color", "white");
 			} else {
 				$('#form-ul li:nth-child(2) input').css("background-color", "red");
 				valid=0;			
@@ -117,7 +127,7 @@ jQuery(document).ready(function() {
 		
 		if ($('input[name="site3url"]').val() && $('input[name="site3name"]').val()) {
 			if ($.fn.isUrlValid($('input[name="site3url"]').val())){
-				$('#form-ul li:last-child input').css("background-color", "none");
+				$('#form-ul li:last-child input').css("background-color", "white");
 			} else {
 				$('#form-ul li:last-child input').css("background-color", "red");
 				valid=0;
@@ -198,5 +208,5 @@ jQuery(document).ready(function() {
 	});
 
 	$.fn.loadJson();
-
+	$.fn.loadnotification();
 });
