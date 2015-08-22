@@ -236,14 +236,14 @@ jQuery(document).ready(function() {
 
 	jQuery(".search-box").submit(function(e){
 		console.log('search submit');
-		console.log(('input[name="q"]').val());
+		console.log($('input[name="q"]').val());
 		var found=0;
-		if (tabs[0].options.sites[0].name.toLowerCase() == ('input[name="q"]').val().toLowerCase()) {
+		if (tabs[0].options.sites[0].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
 			found=1;
 			$.fn.closeSettings();
 		}
 		if (!found) {
-			$( ".notifications" ).html( "<p>" + "cant find " + ('input[name="q"]').val().toLowerCase() + "</p>" );			
+			$( ".notifications" ).html( "<p>" + "cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
 		}
 		e.preventDefault();
 	});
