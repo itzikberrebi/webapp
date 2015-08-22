@@ -247,14 +247,18 @@ jQuery(document).ready(function() {
 		if (tabs[0].options.sites[0].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
 			found=1;
 			$.fn.closeSettings();
+			$.fn.removeAttrSelected();
 			$( ".notifications" ).html( "<p>" + "</p>" );			
 			$('#quick-reports option[value="1"]').attr("selected","selected");		
+			$('#quick-reports select').change();
 		}
 		if (tabs[0].options.sites[1].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
 			found=1;
 			$.fn.closeSettings();
+			$.fn.removeAttrSelected();
 			$( ".notifications" ).html( "<p>" + "</p>" );			
 			$('#quick-reports option[value="2"]').attr("selected","selected");		
+			$('#quick-reports select').change();
 		}
 
 		if (!found) {
