@@ -42,9 +42,11 @@ jQuery(document).ready(function() {
 			$("nav #action-list2 li:first-child a" ).attr("href",quickActions[1].actions[0].url);
 			$("nav #action-list2 li:nth-child(2) a" ).attr("href",quickActions[1].actions[1].url);
 			$("nav #action-list2 li:last-child a" ).attr("href",quickActions[1].actions[2].url);
+			$("nav #action-list2 li:last-child a" ).attr("href",quickActions[1].actions[3].url);
 			$("nav #action-list2 li:first-child a" ).html(quickActions[1].actions[0].label);
 			$("nav #action-list2 li:nth-child(2) a" ).html(quickActions[1].actions[1].label);
 			$("nav #action-list2 li:last-child a" ).html(quickActions[1].actions[2].label);
+			$("nav #action-list2 li:last-child a" ).html(quickActions[1].actions[3].label);
 
 			$("nav #action-list3 li:first-child a").attr("href",quickActions[2].actions[0].url);
 			$("nav #action-list3 li:nth-child(2) a").attr("href",quickActions[2].actions[1].url);
@@ -217,7 +219,7 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
-	jQuery("form").submit(function(e){
+	jQuery("#quick-reports form").submit(function(e){
 		$.fn.addhttp();
 		if ($.fn.checkUrl()){
 			$.fn.saveJson();
