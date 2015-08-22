@@ -234,6 +234,11 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
+	jQuery(".search-box").submit(function(e){
+		console.log('search submit');
+		e.preventDefault();
+	});
+
 	$.fn.loadJson();
 	$.fn.loadnotification();
 	$.fn.loadquickActions();
