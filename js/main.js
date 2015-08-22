@@ -241,6 +241,8 @@ jQuery(document).ready(function() {
 		if (tabs[0].options.sites[0].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
 			found=1;
 			$.fn.closeSettings();
+			$( ".notifications" ).html( "<p>" + "</p>" );			
+			$('#quick-reports option[value="1"]').attr("selected","selected");		
 		}
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
