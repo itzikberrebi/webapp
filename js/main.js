@@ -243,9 +243,14 @@ jQuery(document).ready(function() {
 			$.fn.closeSettings();
 			$( ".notifications" ).html( "<p>" + "</p>" );			
 			$('#quick-reports option[value="1"]').attr("selected","selected");		
-			$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
-
 		}
+		if (tabs[0].options.sites[1].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
+			found=1;
+			$.fn.closeSettings();
+			$( ".notifications" ).html( "<p>" + "</p>" );			
+			$('#quick-reports option[value="2"]').attr("selected","selected");		
+		}
+
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
 		}
