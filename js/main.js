@@ -236,6 +236,7 @@ jQuery(document).ready(function() {
 
 	jQuery(".search-box").submit(function(e){
 		console.log('search submit');
+		console.log(('input[name="q"]').val());
 		e.preventDefault();
 	});
 
