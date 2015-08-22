@@ -103,7 +103,7 @@ jQuery(document).ready(function() {
 			$('select').empty();
 			for (var i = 0; i < 3; i++) {
 				if ($('input[name="site'+i+'name"]').val()) {
-					$('#quick-reports select').add("<option value=""+i+"">"+$('input[name="site'+i+'name"]').val()+"</option>");
+					$('#quick-reports select').add('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
 				};
 			};
     		    // $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
