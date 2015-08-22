@@ -104,7 +104,7 @@ jQuery(document).ready(function() {
 			for (var i = 1; i < 4; i++) {
 				if ($('input[name="site'+i+'name"]').val()) {
 					console.log($('input[name="site'+i+'name"]').val());
-					$('#quick-reports select').add('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
+					$('#quick-reports select').append('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
 				};
 			};
     		    // $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
