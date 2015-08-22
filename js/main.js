@@ -100,9 +100,15 @@ jQuery(document).ready(function() {
 	$.fn.selectItemCheck = function() {
 		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
 			$('select').css("visibility", "visible");
-    		    $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
-    		    $('#quick-reports option[value="2"]').text($('input[name="site2name"]').val());
-    		    $('#quick-reports option[value="3"]').text($('input[name="site3name"]').val());
+
+			for (var i = 0; i < 3; i++) {
+				if ($('input[name="site'+i+'name"]').val()) {
+					$('#quick-reports select').add("<option value=""+i+"">"+$('input[name="site'+i+'name"]').val()+"</option>")
+				};
+			};
+    		    // $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
+    		    // $('#quick-reports option[value="2"]').text($('input[name="site2name"]').val());
+    		    // $('#quick-reports option[value="3"]').text($('input[name="site3name"]').val());
 
 		} else {
 			$('select').css("visibility", "hidden");			
@@ -162,7 +168,7 @@ jQuery(document).ready(function() {
 		}
 		else if ($('input[name="site3url"]').val() || $('input[name="site3name"]').val()) {
 				$('#form-ul li:last-child input').css("background-color", "red");
-								valid=0;
+				valid=0;
 			}
 		return valid;
 	}
@@ -255,7 +261,7 @@ jQuery(document).ready(function() {
 		}
 		};
 		if (!found) {
-			$( ".notifications" ).html( "<p>" + "cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
+			$( ".notifications" ).html( "<p>" + "   cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
 		}
 		e.preventDefault();
 	});
