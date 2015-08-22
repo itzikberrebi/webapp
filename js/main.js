@@ -234,6 +234,12 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
+	$.fn.removeAttrSelected = function() {
+		$('#quick-reports option[value="1"]').removeAttr("selected");		
+		$('#quick-reports option[value="2"]').removeAttr("selected");		
+		$('#quick-reports option[value="3"]').removeAttr("selected");		
+	}
+
 	jQuery(".search-box").submit(function(e){
 		console.log('search submit');
 		console.log($('input[name="q"]').val());
