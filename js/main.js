@@ -244,23 +244,16 @@ jQuery(document).ready(function() {
 		console.log('search submit');
 		console.log($('input[name="q"]').val());
 		var found=0;
-		if (tabs[0].options.sites[0].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
+		for (var i = 0; i < 3; i++) {
+			if (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
 			found=1;
 			$.fn.closeSettings();
 			$.fn.removeAttrSelected();
 			$( ".notifications" ).html( "<p>" + "</p>" );			
-			$('#quick-reports option[value="1"]').attr("selected","selected");		
+			$('#quick-reports option[value="'+i+'"]').attr("selected","selected");		
 			$('#quick-reports select').change();
 		}
-		if (tabs[0].options.sites[1].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
-			found=1;
-			$.fn.closeSettings();
-			$.fn.removeAttrSelected();
-			$( ".notifications" ).html( "<p>" + "</p>" );			
-			$('#quick-reports option[value="2"]').attr("selected","selected");		
-			$('#quick-reports select').change();
-		}
-
+		};
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
 		}
