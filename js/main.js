@@ -243,6 +243,8 @@ jQuery(document).ready(function() {
 			$.fn.closeSettings();
 			$( ".notifications" ).html( "<p>" + "</p>" );			
 			$('#quick-reports option[value="1"]').attr("selected","selected");		
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
+
 		}
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
