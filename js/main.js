@@ -100,7 +100,7 @@ jQuery(document).ready(function() {
 	$.fn.selectItemCheck = function() {
 		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
 			$('select').css("visibility", "visible");
-
+			$('select').empty();
 			for (var i = 0; i < 3; i++) {
 				if ($('input[name="site'+i+'name"]').val()) {
 					$('#quick-reports select').add("<option value=""+i+"">"+$('input[name="site'+i+'name"]').val()+"</option>");
