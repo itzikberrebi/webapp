@@ -56,67 +56,67 @@ jQuery(document).ready(function() {
 			$("nav #action-list3 li:last-child a").html(quickActions[2].actions[2].label);
 
 		});
-	}
+}
 
-	$.fn.loadJsonSecondery = function(){
-		console.log('load for second time')
-		$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
-		$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
-		$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
-		$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
-		$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
-		$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
-	}
+$.fn.loadJsonSecondery = function(){
+	console.log('load for second time')
+	$('input[name="site1name"]').val(tabs[0].options.sites[0].name);
+	$('input[name="site1url"]').val(tabs[0].options.sites[0].url);
+	$('input[name="site2name"]').val(tabs[0].options.sites[1].name);
+	$('input[name="site2url"]').val(tabs[0].options.sites[1].url);
+	$('input[name="site3name"]').val(tabs[0].options.sites[2].name);
+	$('input[name="site3url"]').val(tabs[0].options.sites[2].url);
+}
 
-	$.fn.saveJson = function(){ 
-		console.log('saving');
-		var tabsNew = {
-			"options": {
-				"rowLabel": "Report",
-				"sites": [
-				{"name":$('input[name="site1name"]').val(), "url": $('input[name="site1url"]').val()},
-				{"name":$('input[name="site2name"]').val(), "url":$('input[name="site2url"]').val()},
-				{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3url"]').val()}
-				]
-			}
-		};
-		tabs[0]=tabsNew;
-	}
-
-	$.fn.closeSettings = function(){
-		jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
-	}
-
-	$.fn.showFirstIframe = function() {
-		if ($('input[name="site1name"]').val()){
-			$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
-		} else if ($('input[name="site2name"]').val()) {
-			$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
-		} else if ($('input[name="site3name"]').val()) {
-			$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
+$.fn.saveJson = function(){ 
+	console.log('saving');
+	var tabsNew = {
+		"options": {
+			"rowLabel": "Report",
+			"sites": [
+			{"name":$('input[name="site1name"]').val(), "url": $('input[name="site1url"]').val()},
+			{"name":$('input[name="site2name"]').val(), "url":$('input[name="site2url"]').val()},
+			{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3url"]').val()}
+			]
 		}
-	}
+	};
+	tabs[0]=tabsNew;
+}
 
-	$.fn.selectItemCheck = function() {
-		if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
-			$('select').css("visibility", "visible");
-			$('select').empty();
-			for (var i = 1; i < 4; i++) {
-				if ($('input[name="site'+i+'name"]').val()) {
-					console.log($('input[name="site'+i+'name"]').val());
-					$('#quick-reports select').append('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
-				};
+$.fn.closeSettings = function(){
+	jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+}
+
+$.fn.showFirstIframe = function() {
+	if ($('input[name="site1name"]').val()){
+		$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
+	} else if ($('input[name="site2name"]').val()) {
+		$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
+	} else if ($('input[name="site3name"]').val()) {
+		$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
+	}
+}
+
+$.fn.selectItemCheck = function() {
+	if ($('input[name="site1name"]').val() || $('input[name="site2name"]').val() || $('input[name="site3name"]').val()){
+		$('select').css("visibility", "visible");
+		$('select').empty();
+		for (var i = 1; i < 4; i++) {
+			if ($('input[name="site'+i+'name"]').val()) {
+				console.log($('input[name="site'+i+'name"]').val());
+				$('#quick-reports select').append('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
 			};
+		};
     		    // $('#quick-reports option[value="1"]').text($('input[name="site1name"]').val());
     		    // $('#quick-reports option[value="2"]').text($('input[name="site2name"]').val());
     		    // $('#quick-reports option[value="3"]').text($('input[name="site3name"]').val());
 
-		} else {
-			$('select').css("visibility", "hidden");			
-		}
-	}
+    		} else {
+    			$('select').css("visibility", "hidden");			
+    		}
+    	}
 
-	$.fn.addhttp = function() {
+    	$.fn.addhttp = function() {
 		// $('input[name="site3url"]').val();
 		// $('input[name="site3url"]').val();
 		// $('input[name="site3url"]').val();
@@ -143,8 +143,8 @@ jQuery(document).ready(function() {
 				valid=0;
 			}
 		} else if ($('input[name="site1url"]').val() || $('input[name="site1name"]').val()) {
-				$('#form-ul li:first-child input').css("background-color", "red");
-				valid=0;
+			$('#form-ul li:first-child input').css("background-color", "red");
+			valid=0;
 		}
 		
 		if ($('input[name="site2url"]').val() && $('input[name="site2name"]').val()) {
@@ -155,8 +155,8 @@ jQuery(document).ready(function() {
 				valid=0;			
 			}
 		} else if ($('input[name="site2url"]').val() || $('input[name="site2name"]').val()) {
-				$('#form-ul li:nth-child(2) input').css("background-color", "red");
-						valid=0;
+			$('#form-ul li:nth-child(2) input').css("background-color", "red");
+			valid=0;
 		}
 		
 		if ($('input[name="site3url"]').val() && $('input[name="site3name"]').val()) {
@@ -168,23 +168,23 @@ jQuery(document).ready(function() {
 			} 
 		}
 		else if ($('input[name="site3url"]').val() || $('input[name="site3name"]').val()) {
-				$('#form-ul li:last-child input').css("background-color", "red");
-				valid=0;
-			}
+			$('#form-ul li:last-child input').css("background-color", "red");
+			valid=0;
+		}
 		return valid;
 	}
 
 	$('#quick-reports select').change(function() {
-	    var eventTypeName = $("#quick-reports option:selected");
-	    if (eventTypeName.is('[value="1"]') ) {
-	    	$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
-	    }
-	    if (eventTypeName.is('[value="2"]') ) {
-	    	$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
-	    }
-	    if (eventTypeName.is('[value="3"]') ) {
-	    	$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
-	    }
+		var eventTypeName = $("#quick-reports option:selected");
+		if (eventTypeName.is('[value="1"]') ) {
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[0].url);
+		}
+		if (eventTypeName.is('[value="2"]') ) {
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[1].url);
+		}
+		if (eventTypeName.is('[value="3"]') ) {
+			$("#quick-reports iframe").attr("src", tabs[0].options.sites[2].url);
+		}
 	});	
 
 	jQuery('.tabs li a').on('click', function(e){
@@ -201,17 +201,21 @@ jQuery(document).ready(function() {
 		console.log(temp);
 		for (var i = 0; i < temp.length; i++) {
 			if (temp[i].id == 'quick-reports'){
-				console.log('found it!');	
+				return 'quick-reports';	
+			}
+			if (temp[i].id == 'my-team-folders'){
+				return 'my-team-folders';	
 			}
 		};
 	}
 
 	jQuery('#settings').on('click', function(e)  {
-		$.fn.bringDivName(this);
-			$.fn.loadJsonSecondery();
-			console.log('after pressing settings for second time');			
-			console.log(tabs);
-			e.preventDefault();
+		var div_name = $.fn.bringDivName(this);
+		console.log (div_name);
+		$.fn.loadJsonSecondery();
+		console.log('after pressing settings for second time');			
+		console.log(tabs);
+		e.preventDefault();
 		var class_name = jQuery('#sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
@@ -264,13 +268,13 @@ jQuery(document).ready(function() {
 		var found=0;
 		for (var i = 0; i < 3; i++) {
 			if (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
-			found=1;
-			$.fn.closeSettings();
-			$.fn.removeAttrSelected();
-			$( ".notifications" ).html( "<p>" + "</p>" );			
-			$('#quick-reports option[value="'+i+'"]').attr("selected","selected");		
-			$('#quick-reports select').change();
-		}
+				found=1;
+				$.fn.closeSettings();
+				$.fn.removeAttrSelected();
+				$( ".notifications" ).html( "<p>" + "</p>" );			
+				$('#quick-reports option[value="'+i+'"]').attr("selected","selected");		
+				$('#quick-reports select').change();
+			}
 		};
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "   cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
