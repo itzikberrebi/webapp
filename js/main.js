@@ -66,9 +66,9 @@ jQuery(document).ready(function() {
 				"sites": [
 				{"name":$('input[name="site1name"]').val(), "url": $('input[name="site1url"]').val()},
 				{"name":$('input[name="site2name"]').val(), "url":$('input[name="site2url"]').val()},
-				{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3url"]').val()}
-				{"name":$('input[name="site4name"]').val(), "url":$('input[name="site4url"]').val()}
-				{"name":$('input[name="site5name"]').val(), "url":$('input[name="site5url"]').val()}
+				{"name":$('input[name="site3name"]').val(), "url":$('input[name="site3url"]').val()},
+				{"name":$('input[name="site4name"]').val(), "url":$('input[name="site4url"]').val()},
+				{"name":$('input[name="site5name"]').val(), "url":$('input[name="site5url"]').val()},
 				{"name":$('input[name="site6name"]').val(), "url":$('input[name="site6url"]').val()}
 				]
 			}
