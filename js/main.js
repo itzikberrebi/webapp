@@ -198,6 +198,7 @@ jQuery(document).ready(function() {
 
 	$.fn.bringDivName = function(this_item){
 		var temp = jQuery(this_item).parents();
+		console.log(temp);
 		for (var i = 0; i < temp.length; i++) {
 			if (temp[i].indexOf("quick-reports") >= 0){
 				console.log('found it!');	
@@ -206,7 +207,7 @@ jQuery(document).ready(function() {
 	}
 
 	jQuery('#settings').on('click', function(e)  {
-		$.fn.bringDivName(this)
+		$.fn.bringDivName(this);
 			$.fn.loadJsonSecondery();
 			console.log('after pressing settings for second time');			
 			console.log(tabs);
