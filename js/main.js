@@ -200,7 +200,7 @@ jQuery(document).ready(function() {
 		var temp = jQuery(this_item).parents();
 		console.log(temp);
 		for (var i = 0; i < temp.length; i++) {
-			if (temp[i].indexOf("quick-reports") >= 0){
+			if (temp[i].prop('outerHTML').indexOf("quick-reports") >= 0){
 				console.log('found it!');	
 			}
 		};
