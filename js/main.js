@@ -209,7 +209,7 @@ $.fn.selectItemCheck = function() {
 		};
 	}
 
-	jQuery('#settings').on('click', function(e)  {
+	jQuery('.settings').on('click', function(e)  {
 		var div_name = $.fn.bringDivName(this);
 		console.log (div_name);
 		$.fn.loadJsonSecondery();
