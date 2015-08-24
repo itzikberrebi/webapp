@@ -53,6 +53,7 @@ jQuery(document).ready(function() {
 
 	$.fn.loadJsonSecondery = function(){
 		for (var i = 0; i < tabs[0].options.sites.length ; i++) {
+			console.log('array length is: ' + tabs[0].options.sites.length);
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 			$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 		};
@@ -82,7 +83,7 @@ jQuery(document).ready(function() {
 
 	$.fn.showFirstIframe = function(div_name) {
 
-		for (var i = 0; i < 6; i++) {
+		for (var i = 0; i < tabs[0].options.sites.length; i++) {
 			if ($('input[name="site'+(i+1)+'name"]').val()){
 				$("#"+div_name+" iframe").attr("src", tabs[0].options.sites[i].url);
 			} 
@@ -223,7 +224,7 @@ jQuery(document).ready(function() {
 		var div_name = $.fn.bringDivName(this);
 		console.log('search submit');
 		var found=0;
-		for (var i = 0; i < 6; i++) {
+		for (var i = 0; i < tabs[0].options.sites.length; i++) {
 			if (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
 				found=1;
 				$.fn.closeSettings(div_name);
