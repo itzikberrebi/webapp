@@ -216,12 +216,12 @@ $.fn.selectItemCheck = function() {
 		console.log('after pressing settings for second time');			
 		console.log(tabs);
 		e.preventDefault();
-		var class_name = jQuery('#sites-div').attr('class');
+		var class_name = jQuery('#'+div_name+' #sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
-			jQuery('#sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
+			jQuery('#'+div_name+' #sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
 			e.preventDefault();
 		} else {
-			jQuery('#sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+			jQuery('#'+div_name+' #sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 			e.preventDefault();
 		};
 	});
