@@ -197,6 +197,11 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#settings').on('click', function(e)  {
+
+			if ( jQuery('#quick-reports #settings') == jQuery(this) ){
+				console.log("quick-reports");
+			}
+
 			$.fn.loadJsonSecondery();
 			console.log('after pressing settings for second time');			
 			console.log(tabs);
