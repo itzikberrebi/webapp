@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
 	$.fn.loadJson = function(){ 
 		$.getJSON("data/config.json", function(data){
 			tabs = data.tabsList;
-			for (var i = 0; i < 5; i++) {
+			for (var i = 0; i < tabs[0].options.sites.length; i++) {
 				$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 				$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 			};			
@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.loadJsonSecondery = function(){
-		for (var i = 0; i < 6; i++) {
+		for (var i = 0; i < tabs[0].options.sites.length ; i++) {
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 			$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 		};
