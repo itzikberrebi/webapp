@@ -225,7 +225,7 @@ jQuery(document).ready(function() {
 		console.log('search submit');
 		var found=0;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
-			if (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase()) {
+			if ((tabs[0].options.sites[i].name) && (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase())) {
 				found=1;
 				$.fn.closeSettings(div_name);
 				$.fn.removeAttrSelected(div_name);
@@ -240,6 +240,7 @@ jQuery(document).ready(function() {
 				}
 			}
 		};
+
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "   cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
 		}
