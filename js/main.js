@@ -200,6 +200,7 @@ jQuery(document).ready(function() {
 
 	jQuery("form").submit(function(e){
 		var div_name = $.fn.bringDivName(this);
+		if (div_name=='quick-reports' || div_name=='my-team-folders') {
 		$.fn.addhttp();
 		if ($.fn.checkUrl()){
 			$.fn.saveJson();
@@ -211,6 +212,7 @@ jQuery(document).ready(function() {
 		} else {
 			console.log("submit fail");
 		}
+	};
 		e.preventDefault();
 	});
 
