@@ -93,15 +93,15 @@ jQuery(document).ready(function() {
 	$.fn.selectItemCheck = function(div_name) {
 		var j;
 		if (div_name == 'quick-reports') {
-			j=0;
+			j=1;
 		} else {
-			j=3;
+			j=4;
 		}
 		if ($('input[name="site'+j+'name"]').val() || $('input[name="site'+(j+1)+'name"]').val() || $('input[name="site'+(j+2)+'name"]').val()){
 			$('select').css("visibility", "visible");
 			$('select').empty();
 
-			for (var i = (1+j); i < (4+j); i++) {
+			for (var i = j; i < (3+j); i++) {
 				if ($('input[name="site'+i+'name"]').val()) {
 					$('#'+div_name+' select').append('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
 				};
@@ -126,7 +126,7 @@ jQuery(document).ready(function() {
 
 	$.fn.checkUrl = function(div_name) {
 		var valid=1;
-		for (var i = i; i < 7; i++) {
+		for (var i = 1; i < 7; i++) {
 			if ($('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
 				if ($.fn.isUrlValid($('input[name="site'+i+'url"]').val())){
 					$('#'+div_name+'#form-ul li:first-child input').css("background-color", "white");
@@ -232,11 +232,11 @@ jQuery(document).ready(function() {
 				
 				if (i<3) {			
 					$.fn.closeSettings('quick-reports');
-					$('#quick-reports option[value="'+i+'"]').attr("selected","selected");		
+					$('#quick-reports option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#quick-reports select').change();
 				} else {
 					$.fn.closeSettings('my-team-folders');
-					$('#my-team-folders option[value="'+i+'"]').attr("selected","selected");		
+					$('#my-team-folders option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#my-team-folders select').change();
 				}
 			}
