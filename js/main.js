@@ -44,8 +44,8 @@ jQuery(document).ready(function() {
 			for (var i = 0; i < 3; i++) {
 				if (i==1) {jloop=4} else {jloop=3}
 					for (var j = 0; j < jloop; j++) {
-						$("nav #action-list"+i+" li:"+array[j]+" a").attr("href",quickActions[i].actions[j].url);
-						$("nav #action-list"+i+" li:"+array[j]+" a").html(quickActions[i].actions[j].label);
+						$("nav #action-list"+(i+1)+" li:"+array[j]+" a").attr("href",quickActions[i].actions[j].url);
+						$("nav #action-list"+(i+1)+" li:"+array[j]+" a").html(quickActions[i].actions[j].label);
 					};
 				};
 			});
