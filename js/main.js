@@ -221,20 +221,19 @@ jQuery(document).ready(function() {
 	}
 
 	jQuery(".search-box").submit(function(e){
-		var div_name = $.fn.bringDivName(this);
-		console.log('search submit');
 		var found=0;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
 			if ((tabs[0].options.sites[i].name) && (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase())) {
 				found=1;
-				$.fn.closeSettings(div_name);
-				$.fn.removeAttrSelected(div_name);
+				$.fn.removeAttrSelected();
 				$( ".notifications" ).html( "<p>" + "</p>" );
 				
 				if (i<3) {			
+					$.fn.closeSettings('quick-reports');
 					$('#quick-reports option[value="'+i+'"]').attr("selected","selected");		
 					$('#quick-reports select').change();
 				} else {
+					$.fn.closeSettings('my-team-folders');
 					$('#my-team-folders option[value="'+i+'"]').attr("selected","selected");		
 					$('#my-team-folders select').change();
 				}
