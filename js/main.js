@@ -136,6 +136,7 @@ jQuery(document).ready(function() {
 		for (var i = j; i < (j+3); i++) {
 			if ($('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
 				if ($.fn.isUrlValid($('input[name="site'+i+'url"]').val())){
+					console.log('url is valid');
 					$('#'+div_name+' #form-ul li:first-child input').css("background-color", "white");
 				} else {
 					console.log('url is invalid');
