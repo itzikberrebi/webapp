@@ -246,11 +246,13 @@ jQuery(document).ready(function() {
 				if (i<3) {
 					$.fn.changeTabs('quick-reports');			
 					$.fn.closeSettings('quick-reports');
+					$.fn.selectItemCheck(div_name);
 					$('#quick-reports option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#quick-reports select').change();
 				} else {
 					$.fn.changeTabs('my-team-folders');			
 					$.fn.closeSettings('my-team-folders');
+					$.fn.selectItemCheck(div_name);
 					$('#my-team-folders option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#my-team-folders select').change();
 				}
