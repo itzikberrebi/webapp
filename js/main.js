@@ -103,7 +103,7 @@ jQuery(document).ready(function() {
 
 			for (var i = j; i < (3+j); i++) {
 				if ($('input[name="site'+i+'name"]').val()) {
-					$('#'+div_name+' select').append('<option value="'+i+'">'+$('input[name="site'+i+'name"]').val()+'</option>');
+					$('#'+div_name+' select').append('<option value="'+i+'">'+tabs[0].options.sites[i-1].url+'</option>');
 				};
 			};
 		} else {
@@ -218,7 +218,6 @@ jQuery(document).ready(function() {
 		if ($.fn.checkUrl()){
 			$.fn.saveJson();
 			console.log('submit');
-			console.log(tabs);
 			$.fn.closeSettings(div_name);
 			$.fn.selectItemCheck(div_name);
 			$.fn.showFirstIframe(div_name);
