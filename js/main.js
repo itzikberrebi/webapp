@@ -208,6 +208,8 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery(".form").submit(function(e){
+		var div = jQuery(this).class();
+		alert(div);
 		console.log("submit not for search bar");
 		var div_name = $.fn.bringDivName(this);
 		if (div_name=='quick-reports' || div_name=='my-team-folders') {
@@ -233,6 +235,8 @@ jQuery(document).ready(function() {
 	}
 
 	jQuery(".search-box").submit(function(e){
+				var div = jQuery(this).class();
+		alert(div);
 		var found=0;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
 			if ((tabs[0].options.sites[i].name) && (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase())) {
