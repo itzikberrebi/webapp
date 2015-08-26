@@ -168,9 +168,9 @@ jQuery(document).ready(function() {
 
 	$.fn.changeTabs = function(div_name) {
 		var classAttr = $('#'+div_name).attr('class');
-		console ('after search was press, the class is ' + div_name +'and is ' + classAttr)
+		console.log('after search was press, the class is ' + div_name +'and is ' + classAttr)
 		if (classAttr=='tab_turnon'){
-			
+
 			return;
 		}
 		jQuery('#'+div_name).show().removeClass('tab_turnoff').addClass('tab_turnon');
