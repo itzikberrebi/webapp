@@ -225,7 +225,7 @@ jQuery(document).ready(function() {
 		var div_name = $.fn.bringDivName(this);
 		if (div_name=='quick-reports' || div_name=='my-team-folders') {
 		$.fn.addhttp();
-		if ($.fn.checkUrl()){
+		if ($.fn.checkUrl(div_name)){
 			$.fn.saveJson();
 			console.log('submit');
 			$.fn.closeSettings(div_name);
