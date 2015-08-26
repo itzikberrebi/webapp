@@ -138,11 +138,12 @@ jQuery(document).ready(function() {
 				if ($.fn.isUrlValid($('input[name="site'+i+'url"]').val())){
 					$('#'+div_name+' #form-ul li:first-child input').css("background-color", "white");
 				} else {
-					console.log('url is invalid')
+					console.log('url is invalid');
 					$('#'+div_name+' #form-ul li:first-child input').css("background-color", "red");
 					valid=0;
 				}
 			} else if ($('input[name="site'+i+'url"]').val() || $('input[name="site'+i+'name"]').val()) {
+				console.log('url is invalid');
 				$('#'+div_name+' #form-ul li:first-child input').css("background-color", "red");
 				valid=0;
 			}
