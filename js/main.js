@@ -98,16 +98,16 @@ jQuery(document).ready(function() {
 			j=4;
 		}
 		if ($('input[name="site'+j+'name"]').val() || $('input[name="site'+(j+1)+'name"]').val() || $('input[name="site'+(j+2)+'name"]').val()){
-			$('select').css("visibility", "visible");
-			$('select').empty();
+			$('#'+div_name+' select').css("visibility", "visible");
+			$('#'+div_name+' select').empty();
 
 			for (var i = j; i < (3+j); i++) {
 				if ($('input[name="site'+i+'name"]').val()) {
-					$('#'+div_name+' select').append('<option value="'+i+'">'+tabs[0].options.sites[i-1].url+'</option>');
+					$('#'+div_name+' select').append('<option value="'+i+'">'+tabs[0].options.sites[i-1].name+'</option>');
 				};
 			};
 		} else {
-			$('select').css("visibility", "hidden");			
+			$('#'+div_name+' select').css("visibility", "hidden");			
 		}
 	}
 
