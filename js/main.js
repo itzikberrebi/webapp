@@ -125,8 +125,15 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.checkUrl = function(div_name) {
+		var j;
+		if (div_name == 'quick-reports') {
+			j=1;
+		} else {
+			j=4;
+		}
+
 		var valid=1;
-		for (var i = 1; i < 7; i++) {
+		for (var i = j; i < (j+3); i++) {
 			if ($('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
 				if ($.fn.isUrlValid($('input[name="site'+i+'url"]').val())){
 					$('#'+div_name+'#form-ul li:first-child input').css("background-color", "white");
