@@ -167,8 +167,8 @@ jQuery(document).ready(function() {
 	});
 
 	$.fn.changeTabs = function(div_name) {
-		console.log('after search was press, the class is ' + div_name +'and is ' + classAttr);
 		var classAttr = $('#'+div_name).attr('class');
+		console.log('after search was press, the class is ' + div_name +'and is ' + classAttr);
 		if (classAttr=='tab_turnon'){
 			return;
 		}
@@ -245,13 +245,13 @@ jQuery(document).ready(function() {
 				if (i<3) {
 					$.fn.changeTabs('quick-reports');			
 					$.fn.closeSettings('quick-reports');
-					$.fn.selectItemCheck(div_name);
+					$.fn.selectItemCheck('quick-reports');
 					$('#quick-reports option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#quick-reports select').change();
 				} else {
 					$.fn.changeTabs('my-team-folders');			
 					$.fn.closeSettings('my-team-folders');
-					$.fn.selectItemCheck(div_name);
+					$.fn.selectItemCheck('my-team-folders');
 					$('#my-team-folders option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#my-team-folders select').change();
 				}
