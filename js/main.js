@@ -167,16 +167,15 @@ jQuery(document).ready(function() {
 	});
 
 	$.fn.changeTabs = function(div_name) {
+		console.log('after search was press, the class is ' + div_name +'and is ' + classAttr);
 		var classAttr = $('#'+div_name).attr('class');
-		console.log('after search was press, the class is ' + div_name +'and is ' + classAttr)
 		if (classAttr=='tab_turnon'){
-
 			return;
 		}
 		jQuery('#'+div_name).show().removeClass('tab_turnoff').addClass('tab_turnon');
 		jQuery('#'+div_name).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
-		jQuery('#li-'+div_name).parent('li').removeClass('turnoff').addClass('turnon');
-		jQuery('#li-'+div_name).parent('li').siblings().removeClass('turnon').addClass('turnoff');
+		jQuery('#li-'+div_name).removeClass('turnoff').addClass('turnon');
+		jQuery('#li-'+div_name).siblings().removeClass('turnon').addClass('turnoff');
 	}
 
 	jQuery('.settings').on('click', function(e)  {
