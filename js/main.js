@@ -166,6 +166,15 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
+	$.fn.changeTabs = function(div_name) {
+		href = '#'+div_name;
+		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
+		jQuery(href).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
+		jQuery(this).parent('li').removeClass('turnoff').addClass('turnon');
+		jQuery(this).parent('li').siblings().removeClass('turnon').addClass('turnoff');
+		e.preventDefault();
+	}
+
 	jQuery('.settings').on('click', function(e)  {
 		var div_name = $.fn.bringDivName(this);
 		$.fn.loadJsonSecondery(div_name);
@@ -198,7 +207,8 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
-	jQuery("form").submit(function(e){
+	jQuery(".form").submit(function(e){
+		console.log("submit not for search bar");
 		var div_name = $.fn.bringDivName(this);
 		if (div_name=='quick-reports' || div_name=='my-team-folders') {
 		$.fn.addhttp();
@@ -230,11 +240,13 @@ jQuery(document).ready(function() {
 				$.fn.removeAttrSelected();
 				$( ".notifications" ).html( "<p>" + "</p>" );
 				
-				if (i<3) {			
+				if (i<3) {
+					$.fn.changeTabs('quick-reports');			
 					$.fn.closeSettings('quick-reports');
 					$('#quick-reports option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#quick-reports select').change();
 				} else {
+					$.fn.changeTabs('my-team-folders');			
 					$.fn.closeSettings('my-team-folders');
 					$('#my-team-folders option[value="'+(i+1)+'"]').attr("selected","selected");		
 					$('#my-team-folders select').change();
