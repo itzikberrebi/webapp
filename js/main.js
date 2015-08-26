@@ -135,6 +135,8 @@ jQuery(document).ready(function() {
 		var valid=1;
 		for (var i = j; i < (j+3); i++) {
 			if ($('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
+				console.log($('input[name="site'+i+'name"]').val());
+				console.log($('input[name="site'+i+'url"]').val());
 				if ($.fn.isUrlValid($('input[name="site'+i+'url"]').val())){
 					console.log('url is valid');
 					$('#'+div_name+' #form-ul li:first-child input').css("background-color", "white");
@@ -144,6 +146,8 @@ jQuery(document).ready(function() {
 					valid=0;
 				}
 			} else if ($('input[name="site'+i+'url"]').val() || $('input[name="site'+i+'name"]').val()) {
+				console.log($('input[name="site'+i+'name"]').val());
+				console.log($('input[name="site'+i+'url"]').val());
 				console.log('url is invalid');
 				$('#'+div_name+' #form-ul li:first-child input').css("background-color", "red");
 				valid=0;
