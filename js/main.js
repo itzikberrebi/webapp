@@ -284,6 +284,14 @@ jQuery(document).ready(function() {
 
 	if (localStorage.getItem("infiniteScrollEnabled") === null) {
 		console.log('does not exist');
+		var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+		// Put the object into storage
+		localStorage.setItem('testObject', JSON.stringify(testObject));
+	} else {
+		console.log('exist');
+		// Retrieve the object from storage
+		var retrievedObject = localStorage.getItem('testObject');
+		console.log('retrievedObject: ', JSON.parse(retrievedObject));
 	}
 
 });
