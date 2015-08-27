@@ -282,4 +282,8 @@ jQuery(document).ready(function() {
 	$.fn.loadnotification();
 	$.fn.loadquickActions();
 
+	if (localStorage.getItem("infiniteScrollEnabled") === null) {
+		console.log('does not exist');
+	}
+
 });
