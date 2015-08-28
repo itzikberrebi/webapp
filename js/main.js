@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 	$.fn.fixHttp = function(tabsNew){
 		console.log('fix http');
 		for (var i = 0; i < tabsNew[0].options.sites.length; i++) {
-			if (tabsNew[0].options.sites[i].url.length==7 && tabsNew[0].options.sites[i].url.match("^http://")) {
+			if (tabsNew[0].options.sites[i].url && tabsNew[0].options.sites[i].url.length==7 && tabsNew[0].options.sites[i].url.match("^http://")) {
 				console.log('delete http');
 				tabsNew[0].options.sites[i].url='';
 			}
