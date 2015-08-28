@@ -301,7 +301,6 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
-	retrievedObject = localStorage.getItem('sites');
 	$.fn.loadJson();
 	$.fn.loadnotification();
 	$.fn.loadquickActions();
