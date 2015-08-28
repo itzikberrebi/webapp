@@ -27,6 +27,7 @@ jQuery(document).ready(function() {
 			$("#my-folders iframe").attr("src", tabs[1].options.url);
 			$("#public-folders iframe").attr("src", tabs[3].options.url);
 		});
+		console.log(tabs);
 	}
 
 	$.fn.loadnotification = function(){ 
