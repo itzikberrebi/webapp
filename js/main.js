@@ -51,10 +51,10 @@ jQuery(document).ready(function() {
 
 	$.fn.fixHttp = function(tabsNew){
 		console.log('fix http');
-		for (var i = 0; i < tabsNew[0].options.sites.length; i++) {
-			if (tabsNew[0].options.sites[i].url && tabsNew[0].options.sites[i].url.length==7 && tabsNew[0].options.sites[i].url.match("^http://")) {
+		for (var i = 0; i < tabsNew.options.sites.length; i++) {
+			if (tabsNew.options.sites[i].url && tabsNew.options.sites[i].url.length==7 && tabsNew.options.sites[i].url.match("^http://")) {
 				console.log('delete http');
-				tabsNew[0].options.sites[i].url='';
+				tabsNew.options.sites[i].url='';
 			}
 		};
 		return tabsNew;
@@ -75,8 +75,9 @@ jQuery(document).ready(function() {
 				]
 			}
 		};
-		tabs[0]=$.fn.fixHttp(tabsNew);
-		localStorage.setItem('sites', JSON.stringify(tabsNew));
+		tabs[0]=tabsNew;
+		tabs[0]=$.fn.fixHttp(tabs[0]);
+		localStorage.setItem('sites', JSON.stringify(tabs[0]));
 	}
 
 	$.fn.closeSettings = function(div_name){
