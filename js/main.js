@@ -298,7 +298,11 @@ jQuery(document).ready(function() {
 
 	if (retrievedObject != null) {
 		console.log('local data exist, loading it...');
+					retrievedObject = localStorage.getItem('sites');
+				console.log(JSON.parse(retrievedObject));
+
 		$.fn.loadDataLocally();
+	
 	}
 
 });
