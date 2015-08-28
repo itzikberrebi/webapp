@@ -41,14 +41,21 @@ jQuery(document).ready(function() {
 
 	$.fn.loadDataLocally = function(){
 		console.log('load local data from function');
-		console.log(tabs);
 		retrievedObject = localStorage.getItem('sites');
 		tabs[0] = JSON.parse(retrievedObject);
-		console.log(tabs[0]);
 		for (var i = 0; i < tabs[0].options.sites.length ; i++) {
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 			$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 		};
+	}
+
+	$.fn.fixHttp = function(tabsNew){
+		for (var i = 0; i < tabsNew[0].options.sites.length; i++) {
+			if (tabsNew[0].options.sites[i].url.length==4 && tabsNew[0].options.sites[i].url.match("^http")) {
+				tabsNew[0].options.sites[i].url='';
+			}
+		};
+		return tabsNew;
 	}
 
 	$.fn.saveDataLocally = function(){ 
@@ -66,12 +73,8 @@ jQuery(document).ready(function() {
 				]
 			}
 		};
-		tabs[0]=tabsNew;
-		console.log(tabsNew);
+		tabs[0]=$.fn.fixHttp(tabsNew);
 		localStorage.setItem('sites', JSON.stringify(tabsNew));
-		retrievedObject = localStorage.getItem('sites');
-		console.log(JSON.parse(retrievedObject));
-
 	}
 
 	$.fn.closeSettings = function(div_name){
@@ -287,8 +290,8 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
-	console.log('load data from json');
 	$.getJSON("data/config.json", function(data){
+		console.log('load data from json');
 		console.log(data.tabsList);
 		tabs = data.tabsList;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
@@ -301,6 +304,5 @@ jQuery(document).ready(function() {
 		$.fn.callLoadFunc()
 		$.fn.loadnotification();
 		$.fn.loadquickActions();
-
 	});
 });
