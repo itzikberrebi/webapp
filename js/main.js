@@ -17,6 +17,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.loadJson = function(){ 
+		var r = $.Deferred();
 		console.log('load data from json');
 		$.getJSON("data/config.json", function(data){
 			console.log(data.tabsList);
@@ -28,6 +29,7 @@ jQuery(document).ready(function() {
 			$("#my-folders iframe").attr("src", tabs[1].options.url);
 			$("#public-folders iframe").attr("src", tabs[3].options.url);
 		});
+		return r;
 	}
 
 	$.fn.loadnotification = function(){ 
@@ -301,8 +303,7 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
-	$.fn.loadJson();
+	$.fn.loadJson().done($.fn.callLoadFunc());
 	$.fn.loadnotification();
 	$.fn.loadquickActions();
-	$.fn.callLoadFunc();
 });
