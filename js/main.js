@@ -80,6 +80,7 @@ jQuery(document).ready(function() {
 			}
 		};
 		tabs[0]=tabsNew;
+		console.log(tabsNew);
 		localStorage.setItem('sites', JSON.stringify(tabsNew));
 	}
 
