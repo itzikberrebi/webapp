@@ -54,11 +54,11 @@ jQuery(document).ready(function() {
 
 	$.fn.loadDataLocally = function(){
 		console.log('load local data from function');
+		console.log(tabs);
 		retrievedObject = localStorage.getItem('sites');
 		tabs[0] = JSON.parse(retrievedObject);
 		console.log(tabs[0]);
 		for (var i = 0; i < tabs[0].options.sites.length ; i++) {
-			console.log('array length is: ' + tabs[0].options.sites.length);
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 			$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 		};
