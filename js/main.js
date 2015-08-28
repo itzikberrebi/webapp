@@ -187,6 +187,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.callLoadFunc = function() {
+		retrievedObject = localStorage.getItem('sites');
 		if (retrievedObject) {
 			console.log('local data exist, loading it...');
 			retrievedObject = localStorage.getItem('sites');
@@ -295,7 +296,6 @@ jQuery(document).ready(function() {
 
 	$.getJSON("data/config.json", function(data){
 		console.log('load data from json');
-		console.log(data.tabsList);
 		tabs = data.tabsList;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
