@@ -194,6 +194,15 @@ jQuery(document).ready(function() {
 		};
 	}
 
+	$.fn.callLoadFunc = function() {
+		if (retrievedObject != null) {
+			console.log('local data exist, loading it...');
+			retrievedObject = localStorage.getItem('sites');
+			console.log(JSON.parse(retrievedObject));
+			$.fn.loadDataLocally();
+		}
+	}
+
 	$('select').change(function() {
 		console.log('change \"select\"');
 		var div_name = $.fn.bringDivName(this);
@@ -296,14 +305,5 @@ jQuery(document).ready(function() {
 	$.fn.loadJson();
 	$.fn.loadnotification();
 	$.fn.loadquickActions();
-
-	if (retrievedObject != null) {
-		console.log('local data exist, loading it...');
-					retrievedObject = localStorage.getItem('sites');
-				console.log(JSON.parse(retrievedObject));
-
-		$.fn.loadDataLocally();
-	
-	}
-
+	$.fn.callLoadFunc();
 });
