@@ -2,10 +2,10 @@ jQuery(document).ready(function() {
 
 	var tabs = '';
 	var first = 1;
+	var retrievedObject = '';
 
 	$.fn.bringDivName = function(this_item){
 		var temp = jQuery(this_item).parents();
-		console.log(temp);
 		for (var i = 0; i < temp.length; i++) {
 			if (temp[i].id == 'quick-reports'){
 				return 'quick-reports';	
@@ -17,6 +17,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.loadJson = function(){ 
+		console.log('load data from json');
 		$.getJSON("data/config.json", function(data){
 			tabs = data.tabsList;
 			for (var i = 0; i < tabs[0].options.sites.length; i++) {
@@ -51,7 +52,9 @@ jQuery(document).ready(function() {
 			});
 	}
 
-	$.fn.loadJsonSecondery = function(){
+	$.fn.loadDataLocally = function(){
+		console.log('load local data from function');
+		tabs[0] = JSON.parse(retrievedObject));
 		for (var i = 0; i < tabs[0].options.sites.length ; i++) {
 			console.log('array length is: ' + tabs[0].options.sites.length);
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
@@ -59,8 +62,8 @@ jQuery(document).ready(function() {
 		};
 	}
 
-	$.fn.saveJson = function(){ 
-		console.log('saving');
+	$.fn.saveDataLocally = function(){ 
+		console.log('saving data locally');
 		var tabsNew = {
 			"options": {
 				"rowLabel": "Report",
@@ -75,22 +78,29 @@ jQuery(document).ready(function() {
 			}
 		};
 		tabs[0]=tabsNew;
+		localStorage.setItem('sites', JSON.stringify(tabsNew));
 	}
 
 	$.fn.closeSettings = function(div_name){
+		console.log('close settings');
 		jQuery('#' +div_name+ ' #sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 	}
 
 	$.fn.showFirstIframe = function(div_name) {
-
-		for (var i = 0; i < tabs[0].options.sites.length; i++) {
-			if ($('input[name="site'+(i+1)+'name"]').val()){
-				$("#"+div_name+" iframe").attr("src", tabs[0].options.sites[i].url);
+		if (div_name == 'quick-reports') {
+			j=1;
+		} else {
+			j=4;
+		}
+		for (var i = j; i < (j+3); i++) {
+			if ($('input[name="site'+(i)+'name"]').val()){
+				$("#"+div_name+" iframe").attr("src", tabs[0].options.sites[i-1].url);
+				return;
 			} 
 		};
 	}
 
-	$.fn.selectItemCheck = function(div_name) {
+	$.fn.selectItemVisibility = function(div_name) {
 		var j;
 		if (div_name == 'quick-reports') {
 			j=1;
@@ -111,7 +121,12 @@ jQuery(document).ready(function() {
 		}
 	}
 
-	$.fn.addhttp = function() {
+	$.fn.addhttp = function(url) {
+		if (url.match("^http")) {
+   			return url;
+		} else {
+			return 'http:\\\\'+url;
+		}
 	}
 
 	$.fn.isUrlValid = function(url) {
@@ -131,24 +146,16 @@ jQuery(document).ready(function() {
 		} else {
 			j=4;
 		}
-
 		var valid=1;
 		for (var i = j; i < (j+3); i++) {
 			if ($('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
-				console.log($('input[name="site'+i+'name"]').val());
-				console.log($('input[name="site'+i+'url"]').val());
-				if ($.fn.isUrlValid($('input[name="site'+i+'url"]').val())){
-					console.log('url is valid');
+				if ($.fn.isUrlValid($.fn.addhttp($('input[name="site'+i+'url"]').val()))){
 					$('#'+div_name+' #form-ul li:first-child input').css("background-color", "white");
 				} else {
-					console.log('url is invalid');
 					$('#'+div_name+' #form-ul li:first-child input').css("background-color", "red");
 					valid=0;
 				}
 			} else if ($('input[name="site'+i+'url"]').val() || $('input[name="site'+i+'name"]').val()) {
-				console.log($('input[name="site'+i+'name"]').val());
-				console.log($('input[name="site'+i+'url"]').val());
-				console.log('url is invalid');
 				$('#'+div_name+' #form-ul li:first-child input').css("background-color", "red");
 				valid=0;
 			}
@@ -156,7 +163,31 @@ jQuery(document).ready(function() {
 		return valid;
 	}
 
+	$.fn.changeTabs = function(div_name) {
+		console.log('change tab YAZOM');
+		var classAttr = $('#'+div_name).attr('class');
+		if (classAttr=='tab_turnon'){
+			return;
+		}
+		jQuery('#'+div_name).show().removeClass('tab_turnoff').addClass('tab_turnon');
+		jQuery('#'+div_name).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
+		jQuery('#li-'+div_name).removeClass('turnoff').addClass('turnon');
+		jQuery('#li-'+div_name).siblings().removeClass('turnon').addClass('turnoff');
+	}
+
+	$.fn.removeAttrSelected = function(div_name) {
+		if (div_name == 'quick-reports') {
+			j=1;
+		} else {
+			j=4;
+		}
+		for (var i = j; i < (j+3); i++) {
+			$('option[value="'+i+'"]').removeAttr("selected");		
+		};
+	}
+
 	$('select').change(function() {
+		console.log('change \"select\"');
 		var div_name = $.fn.bringDivName(this);
 		var eventTypeName = $("#"+div_name+" option:selected");
 		if (div_name == 'quick-reports') {
@@ -172,6 +203,7 @@ jQuery(document).ready(function() {
 	});	
 
 	jQuery('.tabs li a').on('click', function(e){
+		console.log('change tab');
 		var href = jQuery(this).attr('href');
 		jQuery(href).show().removeClass('tab_turnoff').addClass('tab_turnon');
 		jQuery(href).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
@@ -180,25 +212,12 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
-	$.fn.changeTabs = function(div_name) {
-		var classAttr = $('#'+div_name).attr('class');
-		console.log('after search was press, the class is ' + div_name +'and is ' + classAttr);
-		if (classAttr=='tab_turnon'){
-			return;
-		}
-		jQuery('#'+div_name).show().removeClass('tab_turnoff').addClass('tab_turnon');
-		jQuery('#'+div_name).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
-		jQuery('#li-'+div_name).removeClass('turnoff').addClass('turnon');
-		jQuery('#li-'+div_name).siblings().removeClass('turnon').addClass('turnoff');
-	}
-
 	jQuery('.settings').on('click', function(e)  {
+		console.log('pressing settings');			
 		var div_name = $.fn.bringDivName(this);
-		$.fn.loadJsonSecondery(div_name);
-		console.log('after pressing settings for second time');			
-		e.preventDefault();
 		var class_name = jQuery('#'+div_name+' #sites-div').attr('class');
 		if (class_name=='sites-div-turnoff') {
+			$.fn.loadDataLocally(div_name);
 			jQuery('#'+div_name+' #sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
 			e.preventDefault();
 		} else {
@@ -228,49 +247,36 @@ jQuery(document).ready(function() {
 		console.log("submit not for search bar");
 		var div_name = $.fn.bringDivName(this);
 		if (div_name=='quick-reports' || div_name=='my-team-folders') {
-		$.fn.addhttp();
-		if ($.fn.checkUrl(div_name)){
-			$.fn.saveJson();
-			console.log('submit');
-			$.fn.closeSettings(div_name);
-			$.fn.selectItemCheck(div_name);
-			$.fn.showFirstIframe(div_name);
-		} else {
-			console.log("submit fail");
-		}
-	};
+			if ($.fn.checkUrl(div_name)){
+				$.fn.saveDataLocally();
+				$.fn.closeSettings(div_name);
+				$.fn.selectItemVisibility(div_name);
+				$.fn.showFirstIframe(div_name);
+			} else {
+				console.log("submit fail - url is not valid");
+			}
+		};
 		e.preventDefault();
 	});
 
-	$.fn.removeAttrSelected = function() {
-		for (var i = 1; i < 7; i++) {
-			$('option[value="'+i+'"]').removeAttr("selected");		
-		};
-	}
-
 	jQuery(".search-box").submit(function(e){
 		var found=0;
+		var array=["quick-reports","my-team-folders"];
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
 			if ((tabs[0].options.sites[i].name) && (tabs[0].options.sites[i].name.toLowerCase() == $('input[name="q"]').val().toLowerCase())) {
 				found=1;
-				$.fn.removeAttrSelected();
 				$( ".notifications" ).html( "<p>" + "</p>" );
-				
-				if (i<3) {
-					$.fn.changeTabs('quick-reports');			
-					$.fn.closeSettings('quick-reports');
-					$.fn.selectItemCheck('quick-reports');
-					$('#quick-reports option[value="'+(i+1)+'"]').attr("selected","selected");		
-					$('#quick-reports select').change();
-				} else {
-					$.fn.changeTabs('my-team-folders');			
-					$.fn.closeSettings('my-team-folders');
-					$.fn.selectItemCheck('my-team-folders');
-					$('#my-team-folders option[value="'+(i+1)+'"]').attr("selected","selected");		
-					$('#my-team-folders select').change();
-				}
+				var div_name = (i < 3) ? array[0] : array[1];
+				$.fn.removeAttrSelected(div_name);
+				$.fn.changeTabs(div_name);			
+				$.fn.closeSettings(div_name);
+				$.fn.selectItemVisibility(div_name);
+				$('#' + div_name +' option[value="'+(i+1)+'"]').attr("selected","selected");		
+				$('#' + div_name +' select').change();
+				e.preventDefault();
+				return;
 			}
-		};
+		};//end for
 
 		if (!found) {
 			$( ".notifications" ).html( "<p>" + "   cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
@@ -278,19 +284,14 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 	});
 
+	retrievedObject = localStorage.getItem('sites');
 	$.fn.loadJson();
 	$.fn.loadnotification();
 	$.fn.loadquickActions();
 
-	var retrievedObject = localStorage.getItem('testObject');
-	if (retrievedObject == null) {
-		console.log('does not exist');
-		var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-		// Put the object into storage
-		localStorage.setItem('testObject', JSON.stringify(testObject));
-	} else {
-		console.log('exist');
-		console.log('retrievedObject: ', JSON.parse(retrievedObject));
+	if (retrievedObject != null) {
+		console.log('local data exist, loading it...');
+		$.fn.loadDataLocally();
 	}
 
 });
