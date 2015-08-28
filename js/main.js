@@ -51,7 +51,7 @@ jQuery(document).ready(function() {
 
 	$.fn.fixHttp = function(tabsNew){
 		for (var i = 0; i < tabsNew[0].options.sites.length; i++) {
-			if (tabsNew[0].options.sites[i].url.length==4 && tabsNew[0].options.sites[i].url.match("^http")) {
+			if (tabsNew[0].options.sites[i].url.length==7 && tabsNew[0].options.sites[i].url.match("^http://")) {
 				tabsNew[0].options.sites[i].url='';
 			}
 		};
