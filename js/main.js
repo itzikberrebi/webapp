@@ -54,6 +54,7 @@ jQuery(document).ready(function() {
 
 	$.fn.loadDataLocally = function(){
 		console.log('load local data from function');
+		retrievedObject = localStorage.getItem('sites');
 		tabs[0] = JSON.parse(retrievedObject);
 		console.log(tabs[0]);
 		for (var i = 0; i < tabs[0].options.sites.length ; i++) {
