@@ -186,7 +186,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.callLoadFunc = function() {
-		if (retrievedObject != null) {
+		if (retrievedObject.size()) {
 			console.log('local data exist, loading it...');
 			retrievedObject = localStorage.getItem('sites');
 			console.log(JSON.parse(retrievedObject));
