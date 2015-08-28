@@ -125,8 +125,8 @@ jQuery(document).ready(function() {
 		if (url.match("^http")) {
    			return url;
 		} else {
-			console.log('http:\\\\'+url);
-			return 'http:\\\\'+url;
+			var new_url = 'http://'+url;
+			return new_url;
 		}
 	}
 
