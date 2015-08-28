@@ -19,6 +19,7 @@ jQuery(document).ready(function() {
 	$.fn.loadJson = function(){ 
 		console.log('load data from json');
 		$.getJSON("data/config.json", function(data){
+			console.log(data.tabsList);
 			tabs = data.tabsList;
 			for (var i = 0; i < tabs[0].options.sites.length; i++) {
 				$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
@@ -27,7 +28,6 @@ jQuery(document).ready(function() {
 			$("#my-folders iframe").attr("src", tabs[1].options.url);
 			$("#public-folders iframe").attr("src", tabs[3].options.url);
 		});
-		console.log(tabs[0]);
 	}
 
 	$.fn.loadnotification = function(){ 
