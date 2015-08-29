@@ -336,6 +336,11 @@ float: left;
 		padding: 10px;
 	}
 
+	.toolbar-icons img {
+		padding: 10px;
+	}
+
+
 	.expand {
 		padding-top: 2px;
 		height: 20px;
