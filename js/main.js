@@ -156,12 +156,12 @@ jQuery(document).ready(function() {
 					$('#'+div_name+' #site'+i+'url').css("background-color", "red");
 					valid=0;
 				}
-			} if (!$('input[name="site'+i+'url"]').val()) {
+			} if (!$('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
 				$('#'+div_name+' #site'+i+'url').css("background-color", "red");
 				valid=0;
 			}
 
-			 if (!$('input[name="site'+i+'name"]').val()) {
+			 if (!$('input[name="site'+i+'name"]').val() && $('input[name="site'+i+'url"]').val()) {
 				$('#'+div_name+' #site'+i+'name').css("background-color", "red");
 				valid=0;
 			}
