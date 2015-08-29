@@ -222,7 +222,7 @@ jQuery(document).ready(function() {
 				event.preventDefault();
 				  setTimeout(function() {
 				    window.scrollTo(0, 0);
-				  }, 1);
+				  }, 0);
 				return;	
 			}
 		};
