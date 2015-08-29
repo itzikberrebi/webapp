@@ -309,6 +309,7 @@ jQuery(document).ready(function() {
 	});
 
 	$.getJSON("data/config.json", function(data){
+		window.location.hash='dfdsfsdf';
 		console.log('load data from json');
 		tabs = data.tabsList;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
