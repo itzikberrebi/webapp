@@ -163,7 +163,7 @@ jQuery(document).ready(function() {
 				$('#'+div_name+' #site'+i+'name').css("background-color", "white");
 				valid=0;
 			} else if (!$('input[name="site'+i+'name"]').val() && $('input[name="site'+i+'url"]').val()) {
-			 	console.log('3');
+				console.log('3');
 				$('#'+div_name+' #site'+i+'name').css("background-color", "red");
 				if ($.fn.isUrlValid($.fn.addhttp($('input[name="site'+i+'url"]').val()))){
 					$('#'+div_name+' #site'+i+'url').css("background-color", "white");
