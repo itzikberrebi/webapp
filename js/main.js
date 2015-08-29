@@ -181,12 +181,13 @@ jQuery(document).ready(function() {
 		console.log('change tab YAZOM');
 		var classAttr = $('#'+div_name).attr('class');
 		if (classAttr=='tab_turnon'){
-			return;
+			return;	
 		}
 		jQuery('#'+div_name).show().removeClass('tab_turnoff').addClass('tab_turnon');
 		jQuery('#'+div_name).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
 		jQuery('#li-'+div_name).removeClass('turnoff').addClass('turnon');
 		jQuery('#li-'+div_name).siblings().removeClass('turnon').addClass('turnoff');
+		$.fn.windowhash();
 	}
 
 	$.fn.removeAttrSelected = function(div_name) {
@@ -210,6 +211,19 @@ jQuery(document).ready(function() {
 		}
 	}
 
+	$.fn.windowhash = function() {
+		var array = ['quick-reports' , 'my-folders' , 'my-team-folders', 'public-folders'];
+		var div_name = '';
+		for (var i = 0; i < array.length; i++) {
+			div_name = array[i];
+			var classAttr = $('#'+div_name).attr('class');
+			if (classAttr=='tab_turnon'){
+				window.location.hash = div_name;
+				return;	
+			}
+		};
+	}
+	
 	$('select').change(function() {
 		console.log('change \"select\"');
 		var div_name = $.fn.bringDivName(this);
@@ -233,6 +247,7 @@ jQuery(document).ready(function() {
 		jQuery(href).siblings('div').hide().removeClass('tab_turnon').addClass('tab_turnoff');
 		jQuery(this).parent('li').removeClass('turnoff').addClass('turnon');
 		jQuery(this).parent('li').siblings().removeClass('turnon').addClass('turnoff');
+		$.fn.windowhash();
 		e.preventDefault();
 	});
 
@@ -268,6 +283,7 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery(".form").submit(function(e){
+		$.fn.windowhash();
 		console.log("submit not for search bar");
 		var div_name = $.fn.bringDivName(this);
 		if (div_name=='quick-reports' || div_name=='my-team-folders') {
@@ -284,6 +300,7 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery(".search-box").submit(function(e){
+		$.fn.windowhash();
 		var found=0;
 		var array=["quick-reports","my-team-folders"];
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
@@ -309,7 +326,7 @@ jQuery(document).ready(function() {
 	});
 
 	$.getJSON("data/config.json", function(data){
-		window.location.hash='dfdsfsdf';
+		$.fn.windowhash();
 		console.log('load data from json');
 		tabs = data.tabsList;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
