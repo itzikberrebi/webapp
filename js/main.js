@@ -301,12 +301,15 @@ jQuery(document).ready(function() {
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 			$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 		};			
-	
-		var src = ( tabs[1].options.url) ? ( tabs[1].options.url) : '#'; 
+		
+		$("#quick-reports .iframe-div").append('<iframe src=""></iframe>');
+		$("#my-team-folders .iframe-div").append('<iframe src=""></iframe>');
+		$("#my-folders").append('<iframe src=""></iframe>');
+		$("#public-folders").append('<iframe src=""></iframe>');
 		$("#my-folders iframe").attr("src", tabs[1].options.url);
-		src = ( tabs[3].options.url) ? ( tabs[3].options.url) : '#'; 
 		$("#public-folders iframe").attr("src", tabs[3].options.url);
 		console.log('end')
+
 		$.fn.callLoadFunc()
 		$.fn.loadnotification();
 		$.fn.loadquickActions();
