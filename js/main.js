@@ -220,6 +220,9 @@ jQuery(document).ready(function() {
 			if (classAttr=='tab_turnon'){
 				window.location.hash = div_name;
 				event.preventDefault();
+				  setTimeout(function() {
+				    window.scrollTo(0, 0);
+				  }, 1);
 				return;	
 			}
 		};
@@ -321,7 +324,7 @@ jQuery(document).ready(function() {
 		};//end for
 
 		if (!found) {
-			$( ".notifications" ).html( "<p>" + "   cant find " + $('input[name="q"]').val().toLowerCase() + "</p>" );			
+			$( ".notifications" ).html( "<p>" + "The searched report " + $('input[name="q"]').val().toLowerCase() + " was not found. </p>" );			
 		}
 		e.preventDefault();
 	});
