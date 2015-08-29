@@ -371,7 +371,7 @@ iframe {
 
 
 
-#send , .cancel{
+.send , .cancel{
 	background-color: black;
 	border: 0px;
 	width: 120px;
