@@ -219,6 +219,7 @@ jQuery(document).ready(function() {
 			var classAttr = $('#'+div_name).attr('class');
 			if (classAttr=='tab_turnon'){
 				window.location.hash = div_name;
+				event.preventDefault();
 				return;	
 			}
 		};
