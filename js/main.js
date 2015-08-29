@@ -82,7 +82,7 @@ jQuery(document).ready(function() {
 
 	$.fn.closeSettings = function(div_name){
 		console.log('close settings');
-		jQuery('#' +div_name+ ' #sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+		jQuery('#' +div_name+ ' >div:first-child').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 	}
 
 	$.fn.showFirstIframe = function(div_name) {
@@ -225,13 +225,13 @@ jQuery(document).ready(function() {
 	jQuery('.settings').on('click', function(e)  {
 		console.log('pressing settings');			
 		var div_name = $.fn.bringDivName(this);
-		var class_name = jQuery('#'+div_name+' #sites-div').attr('class');
+		var class_name = jQuery('#'+div_name+' >div:first-child').attr('class');
 		if (class_name=='sites-div-turnoff') {
 			$.fn.loadDataLocally(div_name);
-			jQuery('#'+div_name+' #sites-div').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
+			jQuery('#'+div_name+' >div:first-child').removeClass('sites-div-turnoff').addClass('sites-div-turnon');
 			e.preventDefault();
 		} else {
-			jQuery('#'+div_name+' #sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+			jQuery('#'+div_name+' >div:first-child').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 			e.preventDefault();
 		};
 	});
@@ -248,7 +248,7 @@ jQuery(document).ready(function() {
 
 	jQuery('.cancel').on('click', function(e)  {
 		var div_name = $.fn.bringDivName(this);
-		jQuery('#'+div_name+' #sites-div').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
+		jQuery('#'+div_name+' >div:first-child').removeClass('sites-div-turnon').addClass('sites-div-turnoff');
 		$.fn.closeSettings(div_name);
 		e.preventDefault();
 	});
@@ -301,7 +301,10 @@ jQuery(document).ready(function() {
 			$('input[name="site'+(i+1)+'name"]').val(tabs[0].options.sites[i].name);
 			$('input[name="site'+(i+1)+'url"]').val(tabs[0].options.sites[i].url);
 		};			
+	
+		var src = ( tabs[1].options.url) ? ( tabs[1].options.url) : '#'; 
 		$("#my-folders iframe").attr("src", tabs[1].options.url);
+		src = ( tabs[3].options.url) ? ( tabs[3].options.url) : '#'; 
 		$("#public-folders iframe").attr("src", tabs[3].options.url);
 		console.log('end')
 		$.fn.callLoadFunc()
