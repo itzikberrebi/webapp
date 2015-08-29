@@ -130,6 +130,7 @@ jQuery(document).ready(function() {
 	}
 
 	$.fn.isUrlValid = function(url) {
+		console.log(url);
 		if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(url)){
 			console.log("valid");
 			return 1;
@@ -157,13 +158,11 @@ jQuery(document).ready(function() {
 					$('#'+div_name+' #site'+i+'url').css("background-color", "red");
 					valid=0;
 				}
-			} if (!$('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
+			} else if (!$('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
 				console.log('2');
 				$('#'+div_name+' #site'+i+'url').css("background-color", "red");
 				valid=0;
-			}
-
-			 if (!$('input[name="site'+i+'name"]').val() && $('input[name="site'+i+'url"]').val()) {
+			} else if (!$('input[name="site'+i+'name"]').val() && $('input[name="site'+i+'url"]').val()) {
 			 	console.log('3');
 				$('#'+div_name+' #site'+i+'name').css("background-color", "red");
 				valid=0;
