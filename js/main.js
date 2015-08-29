@@ -149,6 +149,7 @@ jQuery(document).ready(function() {
 		var valid=1;
 		for (var i = j; i < (j+3); i++) {
 			if ($('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
+				console.log($.fn.isUrlValid($.fn.addhttp($('input[name="site'+i+'url"]').val())));
 				if ($.fn.isUrlValid($.fn.addhttp($('input[name="site'+i+'url"]').val()))){
 					$('#'+div_name+' #site'+i+'url').css("background-color", "white");
 					$('#'+div_name+' #site'+i+'name').css("background-color", "white");
@@ -157,11 +158,13 @@ jQuery(document).ready(function() {
 					valid=0;
 				}
 			} if (!$('input[name="site'+i+'url"]').val() && $('input[name="site'+i+'name"]').val()) {
+				console.log('2');
 				$('#'+div_name+' #site'+i+'url').css("background-color", "red");
 				valid=0;
 			}
 
 			 if (!$('input[name="site'+i+'name"]').val() && $('input[name="site'+i+'url"]').val()) {
+			 	console.log('3');
 				$('#'+div_name+' #site'+i+'name').css("background-color", "red");
 				valid=0;
 			}
