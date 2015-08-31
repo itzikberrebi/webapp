@@ -351,5 +351,8 @@ jQuery(document).ready(function() {
 		$.fn.callLoadFunc()
 		$.fn.loadnotification();
 		$.fn.loadquickActions();
+		window.scrollTo(0, 0);
+
+
 	});
 });
