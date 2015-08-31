@@ -332,6 +332,7 @@ jQuery(document).ready(function() {
 
 	$.getJSON("data/config.json", function(data){
 		$.fn.windowhash();
+		window.scrollTo(0, 0);
 		console.log('load data from json');
 		tabs = data.tabsList;
 		for (var i = 0; i < tabs[0].options.sites.length; i++) {
